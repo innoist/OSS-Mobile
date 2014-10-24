@@ -1,0 +1,38 @@
+.clearBorder-ul-li {
+    border-bottom: none !important;
+}
+.anchorBtnCenter {
+    display: block !important;
+    margin: 0 auto !important;
+    width: 10% !important;
+    text-align: center !important;
+    /*display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    width: 100%;
+    height: 100%;*/
+}
+
+.groupBox-marginTop {
+    margin-top: 45% !important;
+}
+
+#pivotTabs #scroller ul li a {
+    margin-left: 2% !important;
+    text-transform: uppercase !important;
+}
+
+.activityLogContainer {
+    padding: 2% !important;
+}
+
+.ui-checkbox {
+    margin-top: 1% !important;
+}
+
+.btnLogAct {
+    display: block !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+}

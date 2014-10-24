@@ -1,0 +1,422 @@
+<!doctype html>
+<!-- Conditional comment for mobile ie7 blogs.msdn.com/b/iemobile/ -->
+<!--[if IEMobile 7 ]>    <html class="no-js iem7" lang="en"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+
+  <title> Bolt jQuery Mobile Website</title>
+  <meta name="description" content="">
+
+  <!-- Mobile viewport optimization h5bp.com/ad -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
+  <!-- Home screen icon  Mathias Bynens mathiasbynens.be/notes/touch-icons -->
+  <!-- For iPhone 4 with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/h/apple-touch-icon.png">
+  <!-- For first-generation iPad: -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/m/apple-touch-icon.png">
+  <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+  <link rel="apple-touch-icon-precomposed" href="img/l/apple-touch-icon-precomposed.png">
+  <!-- For nokia devices: -->
+  <link rel="shortcut icon" href="img/l/apple-touch-icon.png">
+    
+  
+
+
+  <!-- iOS web app, delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <!-- <script>(function(){var a;if(navigator.platform==="iPad"){a=window.orientation!==90||window.orientation===-90?"img/startup-tablet-landscape.png":"img/startup-tablet-portrait.png"}else{a=window.devicePixelRatio===2?"img/startup-retina.png":"img/startup.png"}document.write('<link rel="apple-touch-startup-image" href="'+a+'"/>')})()</script> -->
+  
+  <!-- The script prevents links from opening in mobile safari. https://gist.github.com/1042026 -->
+  <!-- <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script> -->
+  
+  <!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
+  <!--<meta http-equiv="cleartype" content="on">-->
+
+  <!-- more tags for your 'head' to consider h5bp.com/d/head-Tips -->
+  
+  
+  <!-- fonts -->
+  <!--<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>-->
+
+  
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/flexslider.css">
+    
+  <link rel="stylesheet" href="css/photoswipe/photoswipe.css">
+  <link rel="stylesheet" href="css/jquery.mobile-1.1.1.css">
+  
+  <!--<link rel="stylesheet" href="css/jquery-ui-1.8.16.custom.css">-->
+  
+  
+  <link rel="stylesheet" href="css/themes/theme-black.css">
+  
+  
+  
+  
+  <!-- Main Stylesheet -->
+  <!--<link rel="stylesheet" href="css/style.css">-->
+  
+  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+</head>
+<body>
+<div id="splash" class="splash"> 
+  <img id="splashBg" src="img/splash.jpg" alt="Splash Image">
+  <img id="splashTitle" src="img/splashTitle.png" alt="Splash Title">
+</div>
+
+
+
+
+  <div id="container" data-role="page">
+    
+    <header>
+      
+      <div class="upperMenu">
+                <div class="pagesMenu flexslider">
+            <ul class="slides">
+                <li>
+                    <a href="about.html" id="linkAbout" class="pageLink pageLink-1-1">
+                      <div class="iconBox">
+                        <img src="img/home/icon-about.jpg" alt="About">
+                      </div>
+                      <div class="titleBox">
+                        About
+                      </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="services.html" id="linkServices" class="pageLink pageLink-1-1" >
+                      <div class="iconBox">
+                        <img src="img/home/icon-services.jpg" alt="Services">
+                      </div>
+                      <div class="titleBox">
+                        Services
+                      </div>
+                    </a>
+                </li>
+                <li>            
+                    <a href="portfolio.html" id="linkPortfolio" class="pageLink pageLink-1-1 ">
+                      <div class="iconBox">
+                        <img src="img/home/icon-portfolio.jpg" alt="Portfolio">
+                      </div>
+                      <div class="titleBox">
+                        Portfolio
+                      </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="blog.html" id="linkBlog" class="pageLink pageLink-1-1" >
+                      <div class="iconBox">
+                        <img src="img/home/icon-blog2.jpg" alt="Blog Page">
+                      </div>
+                      <div class="titleBox">
+                        Blog
+                      </div>
+                    </a>
+                </li>
+                <li>            
+                    <a href="contact.html" id="linkContact" class="pageLink pageLink-1-1 " >
+                      <div class="iconBox">
+                        <img src="img/home/icon-contact.jpg" alt="Contact">
+                      </div>
+                      <div class="titleBox">
+                        Contact
+                      </div>
+                    </a>
+                </li>
+                <li>            
+                    <a href="page1.html" id="linkExtra1" class="pageLink pageLink-1-1" >
+                      <div class="iconBox">
+                        <img src="img/icon-yellow.png" alt="Sample Page 1">
+                      </div>
+                      <div class="titleBox">
+                        Elements
+                      </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+      </div>
+      
+      <div id="header">
+        <a href="index.html" class="homeButton" data-direction="reverse"></a>
+        <a href="#" class="menuButton"></a>
+        
+        <h1> Elements &amp; Typography</h1>
+        <h2> Company Name, Service Sector</h2>
+        <!--<a href="about.html" class="nextButton">&raquo;</a>-->
+        
+      </div>
+    </header>
+    
+    <div id="pageSample1" class="page">
+        <div class="content">      
+            
+            
+
+            <!-- Notifications-->
+            <h5 class="sectionTitle"> Collapsible content</h5>
+            
+            <div class="innerContent">
+                              
+              <div  data-mini="true" data-role="collapsible">
+                 <h3>I'm a header</h3>
+                 <p>I'm the collapsible content. By default I'm closed, but you can click the header to open me.</p>
+              </div>
+                        
+              <div  data-mini="true" data-role="collapsible" data-theme="a">
+                 <h3>I'm a header themed "b"</h3>
+                 <p>I'm the collapsible content. By default I'm closed, but you can click the header to open me.</p>
+              </div>
+              <div  data-mini="true" data-role="collapsible" data-theme="b">
+                 <h3>I'm a header themed "b"</h3>
+                 <p>I'm the collapsible content. By default I'm closed, but you can click the header to open me.</p>
+              </div>
+            </div>              
+              
+              
+              
+            
+            
+            <!-- Notifications-->
+            <h5 class="sectionTitle"> Collapsible Sets</h5>
+            
+                                      
+              <div class="innerContent">
+                <div  data-mini="true" data-role="collapsible-set">
+                
+                        <div  data-mini="true" data-role="collapsible" data-collapsed="false">
+                        <h3>Section 1</h3>
+                        <p>I'm the collapsible set content for section 1.</p>
+                        </div>
+                        
+                        <div  data-mini="true" data-role="collapsible">
+                        <h3>Section 2</h3>
+                        <p>I'm the collapsible set content for section 2.</p>
+                        </div>
+                        
+                        <div  data-mini="true" data-role="collapsible">
+                        <h3>Section 3</h3>
+                        <p>I'm the collapsible set content for section 3.</p>
+                        </div>    
+                </div>
+              </div>
+                      
+            
+            
+            
+            <h5 class="sectionTitle"> 1 column</h5>
+            <div class="groupBox innerContent">
+                <div class="columnContainer column-1">
+                    <p class="column">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    </p>
+                </div>
+            </div>
+            
+            
+            
+            
+            <h5 class="sectionTitle"> 2 column</h5>
+            <div class="groupBox innerContent">
+                <div class="columnContainer column-2">
+                    <p class="column">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    </p>
+                    <p class="column">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    </p>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            
+            
+            
+            <h5 class="sectionTitle"> 3 column</h5>
+            <div class="groupBox innerContent">
+                <div class="columnContainer column-3">
+                    <p class="column">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    </p>
+                    <p class="column">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    </p>
+                    <p class="column">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    </p>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            
+            
+            
+            
+            
+            
+            <!--
+            <h5 class="sectionTitle"> 4 column</h5>
+            <div class="groupBox innerContent">
+              <div class="ui-grid-c">
+                <div class="ui-block-a"><p class="column">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    </p></div>
+                <div class="ui-block-b"><p class="column">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    </p></div>
+                <div class="ui-block-c"><p class="column">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    </p></div>
+                <div class="ui-block-d"><p class="column">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    </p></div>
+              </div>
+            </div>
+            -->
+            
+            
+            
+            
+            
+              
+            
+            
+            <h5 class="sectionTitle">Buttons</h2>
+            <div class="groupBox innerContent">
+                <div id="buttons">
+    
+                  <button data-mini="true" class="ui-corner-all ui-button">Default</button>
+                  <button data-mini="true" class="ui-corner-all ui-button" data-theme="a">Default A</button>
+                  <button data-mini="true" class="ui-corner-all ui-button" data-theme="b">Default B</button>
+                  
+                  <button data-mini="true" data-inline="true" class="ui-corner-all ui-button">inline</button>
+                  <button data-mini="true" data-inline="true" class="ui-corner-all ui-button" data-theme="a">Default A</button>
+                  <button data-mini="true" data-inline="true" class="ui-corner-all ui-button" data-theme="b">Default B</button>
+                  <br/> 
+                  
+                </div>
+            </div>
+            
+            
+            <h5 class="sectionTitle">Input slider</h2>
+            <div class="groupBox innerContent">
+              <input type="range" name="slider-1" data-mini="true" id="slider-1" value="60" min="0" max="100" />
+            </div>
+            
+            
+                            
+            <h5 class="sectionTitle">Toggle switch</h2>
+              <div class="groupBox innerContent">
+                <label for="flip-1">Flip switch:</label>
+                <select name="flip-1" id="flip-1"  data-mini="true" data-role="slider">
+                        <option value="off">Off</option>
+                        <option value="on">On</option>
+                </select>
+                
+                                
+                <style type="text/css">
+                .containing-element .ui-slider-switch { width: 11em }
+                </style>
+                <div class="containing-element">
+                        <label for="flip-min">Flip switch:</label>
+                        <select name="flip-min" id="flip-min"  data-mini="true" data-role="slider" data-theme="a">
+                                <option value="off">Off</option>
+                                <option value="on">On</option>
+                        </select>
+                </div>
+                
+                <div class="containing-element">
+                        <label for="flip-min2">Flip switch:</label>
+                        <select name="flip-min2" id="flip-min2"  data-mini="true" data-role="slider" data-theme="e">
+                                <option value="off">Off</option>
+                                <option value="on">On</option>
+                        </select>
+                </div>
+
+              </div>
+            
+                        
+        </div>
+        <!-- end  content -->
+        
+        
+    </div>
+    <!--end page-->
+    
+    
+    <div class="clearfix"></div>
+
+    
+
+
+
+    
+    
+    <footer>
+      <div id="footer">
+        Copyright &copy; 2012 by Company Name
+        <a href="http://www.w3.org/html/logo/" target="_blank" class="html5">
+            <img src="img/HTML5_1Color_White.png" alt="HTML5 Powered with CSS3 / Styling, and Semantis" title="HTML5 Powered with CSS3 / Styling, and Semantics">
+        </a>
+      </div>
+    </footer>
+  </div> <!--! end of #container -->
+
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
+  <!--<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>-->
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>-->
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.8.2.min.js"><\/script>')</script>
+
+  
+  <!--validation for older browsers (if) -->
+  
+  
+  <script src="js/iscroll.js"></script>
+  <script src="js/jquery.flexslider-min.js"></script>
+  <script src="js/photoswipe/klass.min.js"></script>
+  <script src="js/photoswipe/code.photoswipe.jquery-3.0.5.min.js"></script>
+  <script>
+    $(document).bind("mobileinit", function(){
+      
+          $.mobile.defaultPageTransition = 'none';
+          //$.mobile.defaultPageTransition = 'slide';
+          //$.mobile.defaultPageTransition = 'fade';
+          //$.mobile.defaultPageTransition = 'flow';
+          //$.mobile.defaultPageTransition = 'flip';
+          //$.mobile.defaultPageTransition = 'pop';
+          
+          $.mobile.ignoreContentEnabled = true;
+          
+          //enable this if you want your website to run without jQuery Mobile Navigation
+          $.mobile.ajaxEnabled = false;
+    });
+  </script>
+  <!--<script src="js/jquery.mobile-1.1.1.min.js"></script>-->
+  <script src="js/jquery.mobile-1.2.0.min.js"></script>
+  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  
+
+  <!--
+  <script src="js/hammer/hammer.js"></script>
+  <script src="js/hammer/jquery.hammer.js"></script>
+  -->
+  
+  <script src="js/helper.js"></script>
+  <script src="js/script.js"></script>
+  <!-- end scripts-->
+
+  <!-- Debugger - remove for production -->
+  <!-- <script src="https://getfirebug.com/firebug-lite.js"></script> -->
+
+</body>
+</html>
