@@ -1,11 +1,12 @@
 var doProceed = false;
+var imageURI;
 
 var baseURL = "http://118.139.182.155/OSS";
 
 //var baseURL = "http://localhost:43069/";
     
 $(document).on("pagebeforeshow", "#loginPage", function () {
-
+    $.mobile.hidePageLoadingMsg();
     if (localStorage.getItem("Email") != "" || localStorage.getItem("Email") != null) {
 
         $.ajax({
@@ -36,6 +37,18 @@ $(document).on("pagebeforeshow", "#loginPage", function () {
     }
 });
 
+function sleep(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+        if ((new Date().getTime() - start) > milliseconds) {
+            break;
+        }
+    }
+}
+
+function showSpinner() {
+    $.mobile.showPageLoadingMsg();
+}
 function clearLocalStorage() {
     window.localStorage.clear();
     $('#result').empty();
@@ -44,13 +57,16 @@ function clearLocalStorage() {
 }
 
 function authenticateUser() {
+    $.mobile.showPageLoadingMsg();
     var emailaddress = $('#email').val();
     var password = $('#password').val();
     if (emailaddress.length == 0 || password.length == 0) {
+        $.mobile.hidePageLoadingMsg();
         alert("All fields are mendatory");
         return;
     }
     if (!isValidEmailAddress(emailaddress)) {
+        $.mobile.hidePageLoadingMsg();
         doProceed = false;
         alert("Enter correct email address");
         return;
@@ -67,14 +83,17 @@ function authenticateUser() {
                     localStorage.setItem("Password", $('#password').val());
                     localStorage.setItem("OrgId", data.OrgId);
                     localStorage.setItem("UserId", data.UserId);
+                    $.mobile.hidePageLoadingMsg();
                     $.mobile.changePage("#container", { transition: "none" });
                     //ValidateHideBusyIndicator();
                 } else {
+                    $.mobile.hidePageLoadingMsg();
                     alert("Invalid Credentials");
                     //ValidateHideBusyIndicator();
                 }
             },
-            error: function() {
+            error: function () {
+                $.mobile.hidePageLoadingMsg();
                 alert("Some Error Occured");
                 //ValidateHideBusyIndicator();
             }
@@ -135,29 +154,29 @@ function DisplayUserActivities() {
                     '<p class="key"><strong>Points: ' + result.FbPointsFormatted + '</strong></p>' +
                 '</li> ' );
     });
-    setTimeout(function () {
-        $.mobile.hidePageLoadingMsg();
-        $("#activities").show();
-    }, 2000); 
+    $.mobile.hidePageLoadingMsg();
+    $("#activities").show();
 }
 function LoadUserActivitiesDetail() {
     $("#activities").hide();
     $.mobile.showPageLoadingMsg();
-    $.ajax({
-        url: baseURL + "/Api/UserActivity?UserId=" + localStorage.getItem("UserId") + "&UserEmail=" + localStorage.getItem("Email"),
-        dataType: "json",
-        type: 'Get',
-        async: false,
-        // data: phoneNum,
-        success: function (data) {
-            if (data.recordsTotal > 0) {
-                
-                userActivitiesList = data;
-                DisplayUserActivities();
-                
+    setTimeout(function () {
+        $.ajax({
+            url: baseURL + "/Api/UserActivity?UserId=" + localStorage.getItem("UserId") + "&UserEmail=" + localStorage.getItem("Email"),
+            dataType: "json",
+            type: 'Get',
+            async: false,
+            // data: phoneNum,
+            success: function (data) {
+                if (data.recordsTotal > 0) {
+
+                    userActivitiesList = data;
+                    DisplayUserActivities();
+
+                }
             }
-        }
-    });
+        });
+    }, 1000);
 }
 
 function PopulateActivities() {
@@ -193,10 +212,7 @@ function IsFBPost() {
     }
 }
 
-//$(document).on("pageshow", "#activityLog", function () {
-//    ShowBusyIndicator();
-//    PopulateActivities();
-//});
+
 //$(document).on("pageshow", "#activityPage", function () {
 //    ShowBusyIndicator();
 //    LoadUserActivities();
@@ -330,9 +346,9 @@ function saveActivityLog() {
         }
     }
 }
-var imageURI = document.getElementById('largeImage').getAttribute("src");
 
 function validateActivityLogFb() {
+    imageURI = document.getElementById('largeImage').getAttribute("src");
     if ($("#select-choice-1").val() == "none" || $('#comment').val() == '' || $("#date").val() == "") {
         alert("All fields are mendatory");
         return false;

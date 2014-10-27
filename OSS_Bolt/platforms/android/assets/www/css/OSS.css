@@ -18,10 +18,10 @@
     margin-top: 45% !important;
 }
 
-#pivotTabs #scroller ul li a {
+/*#pivotTabs #scroller ul li a {
     margin-left: 2% !important;
     text-transform: uppercase !important;
-}
+}*/
 
 .activityLogContainer {
     padding: 2% !important;
@@ -36,3 +36,52 @@
     margin: 0 auto !important;
     text-align: center !important;
 }
+
+.headerIndex {
+    background: #054950 !important;
+    margin-top: 0.5% !important;
+    text-align: left !important;
+    height: 44px !important;
+}
+
+#header {
+    background: #054950 !important;
+    margin-top: 5px !important;
+}
+
+#footer {
+    background: #054950 !important;
+}
+
+#logo{
+    margin-top: 0.5% !important;
+    margin-left: 1%;
+    width: 20% !important;
+    height: 87% !important;
+}
+
+.groupBoxHome .flexsliderHome {
+    max-height: none !important;
+    overflow: hidden !important;
+}
+
+#logout{
+    float: right !important;
+    margin-top: 11px !important;
+    margin-right: 3% !important;
+    color: white !important;
+}
+
+.buttonLogout {
+    background: none !important;
+}
+
+.contact-us {
+    background: #fff url(../img/home/contact-us-bg.jpg) no-repeat right bottom !important;
+    overflow: hidden !important;
+    margin-top: 10px !important;
+}
+
+.containerImg { position:relative; }
+.imgA1 { position:absolute; top: 0px; left: 0px; } 
+.imgB1 { position:absolute; top: 0px; left: 0px; } 

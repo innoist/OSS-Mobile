@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title> Bolt jQuery Mobile Website</title>
+  <title> Activities</title>
   <meta name="description" content="">
 
   <!-- Mobile viewport optimization h5bp.com/ad -->
@@ -67,10 +67,10 @@
   <script src="js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 <body>
-    <!--<div id="splash" class="splash"> 
+    <div id="splash" class="splash"> 
       <img id="splashBg" src="img/splash.jpg" alt="Splash Image">
-      <img id="splashTitle" src="img/splashTitle.png" alt="Splash Title">
-    </div>-->
+      <img id="splashTitle" src="img/jquerymobile/ajax-loader-c.gif" alt="Splash Image">
+    </div>
 
 
 
@@ -84,19 +84,19 @@
           <ul class="slides">
               
               <li>
-                  <a href="index.html" id="linkBlog" class="pageLink pageLink-1-1" >
+                  <a href="contact.html" id="linkBlog" class="pageLink pageLink-1-1" >
                     <div class="iconBox">
-                      <img src="img/home/icon-logout.png" alt="Logout">
+                      <img src="img/home/icon-contact.png" alt="Logout">
                     </div>
                     <div class="titleBox">
-                      Logout
+                      Contact Us
                     </div>
                   </a>
               </li>
               <li>            
                   <a href="activityLog.html" id="linkContact" class="pageLink pageLink-1-1 " >
                     <div class="iconBox">
-                      <img src="img/home/icon-logactivity.png" alt="Contact">
+                      <img src="img/home/icon-logactivity.jpg" alt="Contact">
                     </div>
                     <div class="titleBox">
                       Log Activities
@@ -186,12 +186,9 @@
       <div class="clearfix"></div>
       <div class="separator"></div>
     <footer>
-      <div id="footer">
-        Copyright &copy; 2012 by Company Name
-        <a href="http://www.w3.org/html/logo/" target="_blank" class="html5">
-            <img src="img/HTML5_1Color_White.png" alt="HTML5 Powered with CSS3 / Styling, and Semantis" title="HTML5 Powered with CSS3 / Styling, and Semantics">
-        </a>
-      </div>
+        <div id="footer">
+            2014 &copy; Web Sponsor. | Powered by InnoSTARK Technologies
+        </div>
     </footer>
   </div> <!--! end of #container -->
     
@@ -214,46 +211,42 @@
   <script src="js/photoswipe/klass.min.js"></script>
     <script src="js/photoswipe/code.photoswipe.jquery-3.0.5.min.js"></script>
     <script type="text/javascript" src="js/OSS_Script.js"></script>
-  <script>
-    $(document).bind("mobileinit", function(){
+    <script>
+        $(document).bind("mobileinit", function(){
       
-          $.mobile.defaultPageTransition = 'none';
-          //$.mobile.defaultPageTransition = 'slide';
-          //$.mobile.defaultPageTransition = 'fade';
-          //$.mobile.defaultPageTransition = 'flow';
-          //$.mobile.defaultPageTransition = 'flip';
-          //$.mobile.defaultPageTransition = 'pop';
+            //$.mobile.defaultPageTransition = 'none';
+            $.mobile.defaultPageTransition = 'slide';
+            //$.mobile.defaultPageTransition = 'fade';
+            //$.mobile.defaultPageTransition = 'flow';
+            //$.mobile.defaultPageTransition = 'flip';
+            //$.mobile.defaultPageTransition = 'pop';
           
-          $.mobile.ignoreContentEnabled = true;
+            $.mobile.ignoreContentEnabled = true;
           
-          //enable this if you want your website to run without jQuery Mobile Navigation
-          $.mobile.ajaxEnabled = false;
-    });
-    
-    $(document).ready(function () {
-        $("#activities").hide();
-        $(document).on("pageshow", "#container", function () {
-            LoadUserActivitiesDetail();
+            //enable this if you want your website to run without jQuery Mobile Navigation
+            $.mobile.ajaxEnabled = false;
         });
-        var c3 = document.getElementById("linkBlog");
-        c3.addEventListener("click", logoutUser, false);
-        //LoadUserActivitiesDetail();
-        //var btnLoadAct = document.getElementById("loadAct");
-        //btnLoadAct.addEventListener("click", LoadUserActivitiesDetail, false);
-        //$("#imgServices").load("activities.html #activities", function () {
-        //    //LoadUserActivitiesDetail();
-        //    $(this).trigger('create');
-        //});
+        $(document).ready(function () {
+            $("#activities").hide();
+            $(document).on("pageshow", "#container", function () {
+                LoadUserActivitiesDetail();
+            });
+            $(document).on("pageshow", "#splash", function () {
+                //$.mobile.showPageLoadingMsg();
+            });
+            //var c3 = document.getElementById("linkBlog");
+            //c3.addEventListener("click", logoutUser, false);
+            //LoadUserActivitiesDetail();
+            //var btnLoadAct = document.getElementById("loadAct");
+            //btnLoadAct.addEventListener("click", LoadUserActivitiesDetail, false);
+            //$("#imgServices").load("activities.html #activities", function () {
+            //    //LoadUserActivitiesDetail();
+            //    $(this).trigger('create');
+            //});
         
-    });
+        });
 
-    function showSpinner() {
-        $.mobile.showPageLoadingMsg();
-    }
-    function hideSpinner() {
-        $.mobile.hidePageLoadingMsg();
-    }
-  </script>
+    </script>
   <!--<script src="js/jquery.mobile-1.1.1.min.js"></script>-->
   <script src="js/jquery.mobile-1.2.0.min.js"></script>
   <!--<script src="http://maps.google.com/maps/api/js?sensor=false"></script>-->

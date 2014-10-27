@@ -24,7 +24,7 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <meta name="msapplication-tap-highlight" content="no" />
-        <title>Hello World</title>
+        <title>Sponsor</title>
         <!-- Mobile viewport optimization h5bp.com/ad -->
           <meta name="HandheldFriendly" content="True">
           <meta name="MobileOptimized" content="320">
@@ -95,15 +95,18 @@
                 <a href="#" id="login" class="button buttonStrong ui-corner-all ui-button anchorBtnCenter" data-theme="b" data-mini="true">Login</a>
             </div>
         </div>
-        <!--<div data-role="page" id="splash" class="splash"> 
-          <img id="splashBg" src="img/splash.jpg" alt="Splash Image">
-          <img id="splashTitle" src="img/splashTitle.png" alt="Splash Title">
-        </div>-->
+
+        <div data-role="page" id="splash" class="splash"> 
+            <img id="splashBg" src="img/splash.jpg" alt="Splash Image">
+            <img id="splashTitle" src="img/jquerymobile/ajax-loader-c.gif" alt="Splash Image">
+            
+        </div>
+
       <div data-role="page"  id="container"  data-role="page" >
             <header>
-              <div id="header">
-                <h1> Company Name </h1>
-                <h2> Service Sector </h2>
+              <div id="header" class="headerIndex">
+                <a href="#"><img id="logo" src="img/home/logo.jpg"/></a>
+                <a id="logout" href="#" class="button buttonStrong ui-corner-all ui-button buttonLogout">Logout</a>
               </div>
             </header>
             <!--
@@ -113,19 +116,19 @@
     
             <div id="pageHome" class="page">
                 <div class="content">
-                    <div class="groupBox innerContent ">
-                        <div id="bannerSlider" class="flexslider">
+                    <div class="groupBox innerContent groupBoxHome">
+                        <div id="bannerSlider" class="flexslider flexsliderHome">
                           <ul class="slides">
                             <li>
-                              <img src="img/slides/6.jpg" alt="Slide"/>
+                              <img src="img/slides/a.jpg" alt="Slide"/>
                             </li>
                             <li>
-                              <img src="img/slides/1.jpg" alt="Slide" />
+                              <img src="img/slides/b.jpg" alt="Slide" />
                             </li>
                             <li>
-                              <img src="img/slides/2.jpg" alt="Slide" />
+                              <img src="img/slides/c.jpg" alt="Slide" />
                             </li>
-                            <li>
+                            <!--<li>
                               <img src="img/slides/3.jpg" alt="Slide" />
                             </li>
                             <li>
@@ -133,7 +136,7 @@
                             </li>
                             <li>
                               <img src="img/slides/5.jpg" alt="Slide" />
-                            </li>
+                            </li>-->
                           </ul>
                         </div>
                     </div>
@@ -142,18 +145,18 @@
               <div class="separator"></div>
       
               <div class="pagesMenu">
-                <a href="#" id="linkBlog" class="pageLink pageLink-1-1" >
+                <a href="contact.html" id="linkBlog" class="pageLink pageLink-1-1" >
                   <div class="iconBox">
-                    <img src="img/home/icon-logout.png" alt="Logout">
+                    <img src="img/home/icon-contact.png" alt="Logout">
                   </div>
                   <div class="titleBox">
-                    Logout
+                    Contact Us
                   </div>
                 </a>
         
                 <a href="activityLog.html" id="linkContact" class="pageLink pageLink-1-1 " >
                   <div class="iconBox">
-                    <img src="img/home/icon-logactivity.png" alt="Log Activities">
+                    <img src="img/home/icon-logactivity.jpg" alt="Log Activities">
                   </div>
                   <div class="titleBox">
                     Log Activities
@@ -178,10 +181,7 @@
             <div class="clearfix"></div>
             <footer>
               <div id="footer">
-                Copyright &copy; 2012 by Company Name
-                <a href="http://www.w3.org/html/logo/" target="_blank" class="html5">
-                    <img src="img/HTML5_1Color_White.png" alt="HTML5 Powered with CSS3 / Styling, and Semantis" title="HTML5 Powered with CSS3 / Styling, and Semantics">
-                </a>
+                2014 &copy; Web Sponsor. | Powered by InnoSTARK Technologies
               </div>
             </footer>
           </div> <!--! end of #container -->
@@ -210,8 +210,8 @@
           <script type="text/javascript" src="js/OSS_Script.js"></script>
           <script>
               $(document).bind("mobileinit", function () {
-                  $.mobile.defaultPageTransition = 'none';
-                  //$.mobile.defaultPageTransition = 'slide';
+                  //$.mobile.defaultPageTransition = 'none';
+                  $.mobile.defaultPageTransition = 'slide';
                   //$.mobile.defaultPageTransition = 'fade';
                   //$.mobile.defaultPageTransition = 'flow';
                   //$.mobile.defaultPageTransition = 'flip';
@@ -227,10 +227,14 @@
                   var btnLogin = document.getElementById("login");
                   btnLogin.addEventListener("click", authenticateUser, false);
                   
-                  var btnLogout = document.getElementById("linkBlog");
+                  var btnLogout = document.getElementById("logout");
                   btnLogout.addEventListener("click", logoutUser, false);
-                  //var c4 = document.getElementById("exit");
-                  //c4.addEventListener("click", closeApp, false);
+
+                  $(document).on("pageshow", "#splash", function () {
+                      //$.mobile.showPageLoadingMsg();
+                  });
+                  //var c4 = document.getElementById("linkExtra1");
+                  //c4.addEventListener("click", showSpinner, false);
                   //var c4 = document.getElementById("logActivity");
                   //c4.addEventListener("click", loadLogActivity, false);
                   //var c5 = document.getElementById("cancel");

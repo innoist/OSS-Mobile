@@ -45,8 +45,8 @@
                
                //hide splash
                setTimeout(function(){
-                    $('#splash').fadeOut('1000');
-               }, 2000);
+                    $('#splash').fadeOut('750');
+               }, 750);
              
                
                runFlexsliders();

@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title> Bolt jQuery Mobile Website</title>
+  <title> Contact Us</title>
   <meta name="description" content="">
 
   <!-- Mobile viewport optimization h5bp.com/ad -->
@@ -45,7 +45,8 @@
   <!--<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>-->
 
   
-  <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/OSS.css">
   <link rel="stylesheet" href="css/flexslider.css">
     
   <link rel="stylesheet" href="css/photoswipe/photoswipe.css">
@@ -66,10 +67,10 @@
   <script src="js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 <body>
-<div id="splash" class="splash"> 
-  <img id="splashBg" src="img/splash.jpg" alt="Splash Image">
-  <img id="splashTitle" src="img/splashTitle.png" alt="Splash Title">
-</div>
+    <div id="splash" class="splash"> 
+      <img id="splashBg" src="img/splash.jpg" alt="Splash Image">
+      <img id="splashTitle" src="img/jquerymobile/ajax-loader-c.gif" alt="Splash Image">
+    </div>
 
 
 
@@ -83,65 +84,35 @@
                 <div class="pagesMenu flexslider">
             <ul class="slides">
                 <li>
-                    <a href="about.html" id="linkAbout" class="pageLink pageLink-1-1">
-                      <div class="iconBox">
-                        <img src="img/home/icon-about.jpg" alt="About">
-                      </div>
-                      <div class="titleBox">
-                        About
-                      </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="services.html" id="linkServices" class="pageLink pageLink-1-1" >
-                      <div class="iconBox">
-                        <img src="img/home/icon-services.jpg" alt="Services">
-                      </div>
-                      <div class="titleBox">
-                        Services
-                      </div>
-                    </a>
-                </li>
-                <li>            
-                    <a href="portfolio.html" id="linkPortfolio" class="pageLink pageLink-1-1 ">
-                      <div class="iconBox">
-                        <img src="img/home/icon-portfolio.jpg" alt="Portfolio">
-                      </div>
-                      <div class="titleBox">
-                        Portfolio
-                      </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="blog.html" id="linkBlog" class="pageLink pageLink-1-1" >
-                      <div class="iconBox">
-                        <img src="img/home/icon-blog2.jpg" alt="Blog Page">
-                      </div>
-                      <div class="titleBox">
-                        Blog
-                      </div>
-                    </a>
-                </li>
-                <li>            
-                    <a href="contact.html" id="linkContact" class="pageLink pageLink-1-1 " >
-                      <div class="iconBox">
-                        <img src="img/home/icon-contact.jpg" alt="Contact">
-                      </div>
-                      <div class="titleBox">
-                        Contact
-                      </div>
-                    </a>
-                </li>
-                <li>            
-                    <a href="page1.html" id="linkExtra1" class="pageLink pageLink-1-1" >
-                      <div class="iconBox">
-                        <img src="img/icon-yellow.png" alt="Sample Page 1">
-                      </div>
-                      <div class="titleBox">
-                        Elements
-                      </div>
-                    </a>
-                </li>
+                  <a href="contact.html" id="linkBlog" class="pageLink pageLink-1-1" >
+                    <div class="iconBox">
+                      <img src="img/home/icon-contact.png" alt="Logout">
+                    </div>
+                    <div class="titleBox">
+                      Contact Us
+                    </div>
+                  </a>
+              </li>
+              <li>            
+                  <a href="activityLog.html" id="linkContact" class="pageLink pageLink-1-1 " >
+                    <div class="iconBox">
+                      <img src="img/home/icon-logactivity.jpg" alt="Contact">
+                    </div>
+                    <div class="titleBox">
+                      Log Activities
+                    </div>
+                  </a>
+              </li>
+              <li>            
+                  <a href="activities.html" id="linkExtra1" class="pageLink pageLink-1-1" >
+                    <div class="iconBox">
+                      <img src="img/icon-yellow.jpg" alt="Sample Page 1">
+                    </div>
+                    <div class="titleBox">
+                      Activities
+                    </div>
+                  </a>
+              </li>
             </ul>
         </div>
       </div>
@@ -150,7 +121,7 @@
         <a href="index.html" class="homeButton" data-direction="reverse"></a>
         <a href="#" class="menuButton"></a>
         <h1> Contact</h1>
-        <h2> Company Name, Service Sector</h2>
+        <!--<h2> Company Name, Service Sector</h2>-->
         <!--<a href="page1.html" class="nextButton">&raquo;</a>-->
         <!--
         <a href="index.html">
@@ -170,178 +141,127 @@
     </div>
     -->
     
-    <div id="pageContact" class="page">
-        <div class="content">
-            <div class="groupBox innerContent">
+      <div id="pageContact" class="page">
+          <div class="content">
+              <div class="groupBox innerContent">
                 
-              <div id="banner" class="flexslider">
-                <ul class="slides">
-                  <li>
-                    <img src="img/contact.jpg" />
-                  </li>
-                </ul>
-              </div>
-              
-            </div>
-        </div>
-
-        <div class="content">
-          
-          
-            <div id="pivotTabs" class="pivotTabs">
-              <div id="scroller">
-                <ul id="thelist">
-                  <li> <a href="#" data-value="#contactTab"> contact us</a> </li>
-                  <li> <a href="#" data-value="#socialTab"> getting social</a> </li>
-                  <li> <a href="#" data-value="#mapTab"> view our location</a> </li>
-                  <li> <a href="#" class="goToFirst">&laquo;</a> </li>
-                </ul>
-              </div>
-            </div>
-        
-            
-            <div id="contactTab" class="pivotTab" >
-
-              <h5 class="sectionTitle"> My Address</h5>              
-              <div class="groupBox ">
-                <ul>
-                  <li>
-                    <p class="value">
-                      51st street, 5th Avenue <br/>
-                      New York<br/>
-                      The States<br/>
-                    </p>
-                  </li>
-                </ul>
-              </div>
-              
-              <h5 class="sectionTitle"> We would love to listen from you.</h5>
-              
-              
-              
-               <div class="ui-widget successMessage">
-                  <div class="ui-state-highlight ui-corner-all">
-                    <p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
-                    <strong>Success!</strong> Your mail has been sent.</p>
+                  <div id="banner" class="flexslider">
+                      <ul class="slides">
+                          <li>
+                              <img src="img/contact.png" />
+                          </li>
+                      </ul>
                   </div>
-                </div>
-               
               
-              <form action="send-email.php" method="POST" data-enhance="false" >
-                <div class="groupBox">
-                  
-                  <ul>
-                    <li>
-                        <input type="text" placeholder="Name" required name="contactName" id="contactName">
-                    </li>
-                    <li>
-                        <input type="email" placeholder="Email" required name="contactEmail" id="contactEmail">
-                    </li>
-                    <li>
-                        <input type="tel" placeholder="Phone" name="contactPhone" id="contactPhone">
-                    </li>
-                    <li>
-                        <textarea placeholder="Message" required name="contactMessage" id="contactMessage"></textarea>
-                    </li>
-                  </ul>
-                  
-                  <input type="submit" class="button buttonStrong right" value="Send" name="buttonSubmit" value="submit">
-                  <div class="clearfix"></div>
-                  
-                </div>
-                <!-- end group box -->
-              </form>
-            </div>
-            <!--end tab-->
-                    
-                    
-                    
-                    
-            
-            <div id="mapTab" class="pivotTab" >
-                <h5 class="sectionTitle"> Find me here! </h5>
-                <div id="map" class="map groupBox innerContent" data-location="Champs Elysees Paris">
-                </div>  
-            </div>
-            <!--end tab-->
-            
-            
-            
-            
-            <div id="socialTab" class="pivotTab">
-              <h5 class="sectionTitle"> We're active now in the social society.</h5>
-              <div class="innerContent">
-                <ul class="left">
-                  <li>
-                    <a target="_blank" href="http://twitter.com">
-                      <img src="img/social/twitter.png" alt="twitter">
-                      <span> Follow us on Twitter </span>
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a target="_blank" href="http://facebook.com">
-                      <img src="img/social/facebook.png" alt="facebook">
-                      <span> Like us on Facebook </span>
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a target="_blank" href="http://linkedin.com">
-                      <img src="img/social/linkedin.png" alt="linkedin">
-                      <span> Follow us on Linkedin </span>
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a target="_blank" href="http://youtube.com">
-                      <img src="img/social/youtube.png" alt="youtube">
-                      <span> Subscribe us on Youtube </span>
-                    </a>
-                  </li>
-                </ul>
-              </ul>
-              
-              <ul id="second" class="left">                  
-                  <li>
-                    <a target="_blank" href="http://vimeo.com">
-                      <img src="img/social/vimeo.png" alt="vimeo">
-                      <span> Subscribe us on Vimeo</span>
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a target="_blank" href="http://skype.com">
-                      <img src="img/social/skype.png" alt="skype">
-                      <span> Reach us on Skype</span>
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a target="_blank" href="http://blogger.com">
-                      <img src="img/social/blogger.png" alt="blogger">
-                      <span> Read us on Blogger </span>
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a target="_blank" href="http://flickr.com">
-                      <img src="img/social/flickr2.png" alt="flickr">
-                      <span> Follow us on Flickr </span>
-                    </a>
-                  </li>
-                  
-                </ul>
               </div>
-            </div>
-            <!--end tab-->
+          </div>
+
+          <div class="content">
+          
+          
+              <div id="pivotTabs" class="pivotTabs">
+                  <div id="scroller">
+                      <ul id="thelist">
+                          <li> <a href="#" data-value="#contactTab"> contact us</a> </li>
+                          <li> <a href="#" data-value="#socialTab"> getting social</a> </li>
+                          <li> <a href="#" data-value="#mapTab"> view our location</a> </li>
+                          <li> <a href="#" class="goToFirst">&laquo;</a> </li>
+                      </ul>
+                  </div>
+              </div>
+        
+            
+              <div id="contactTab" class="pivotTab" >           
+                  <div class="groupBox contact-us">
+                      <ul>
+                          <li>
+                              <p>Address<br /><i>411 E Washington St.<br />Lewisburg, WV 24901</i></p>
+                              <p>Phone<br /><i> 757-871-3165</i></p>
+                              <p>Email<br /><i>support@sponsoredinc.com</i></p>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              
+              <div id="mapTab" class="pivotTab" >
+                  <h5 class="sectionTitle"> Find me here! </h5>
+                  <div id="map" class="map groupBox innerContent" data-location="Champs Elysees Paris">
+                  </div>  
+              </div>
+              <!--end tab-->
+              <div id="socialTab" class="pivotTab">
+                  <h5 class="sectionTitle"> We're active now in the social society.</h5>
+                  <div class="innerContent">
+                      <ul class="left">
+                          <li>
+                              <a target="_blank" href="http://twitter.com">
+                                  <img src="img/social/twitter.png" alt="twitter">
+                                  <span> Follow us on Twitter </span>
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <a target="_blank" href="http://facebook.com">
+                                  <img src="img/social/facebook.png" alt="facebook">
+                                  <span> Like us on Facebook </span>
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <a target="_blank" href="http://linkedin.com">
+                                  <img src="img/social/linkedin.png" alt="linkedin">
+                                  <span> Follow us on Linkedin </span>
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <a target="_blank" href="http://youtube.com">
+                                  <img src="img/social/youtube.png" alt="youtube">
+                                  <span> Subscribe us on Youtube </span>
+                              </a>
+                          </li>
+                      </ul>
+              
+                      <ul id="second" class="left">                  
+                          <li>
+                              <a target="_blank" href="http://vimeo.com">
+                                  <img src="img/social/vimeo.png" alt="vimeo">
+                                  <span> Subscribe us on Vimeo</span>
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <a target="_blank" href="http://skype.com">
+                                  <img src="img/social/skype.png" alt="skype">
+                                  <span> Reach us on Skype</span>
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <a target="_blank" href="http://blogger.com">
+                                  <img src="img/social/blogger.png" alt="blogger">
+                                  <span> Read us on Blogger </span>
+                              </a>
+                          </li>
+                  
+                          <li>
+                              <a target="_blank" href="http://flickr.com">
+                                  <img src="img/social/flickr2.png" alt="flickr">
+                                  <span> Follow us on Flickr </span>
+                              </a>
+                          </li>
+                  
+                      </ul>
+                  </div>
+              </div>
+              <!--end tab-->
                     
-        </div>
-        <!-- end  content -->
+          </div>
+          <!-- end  content -->
         
         
         
-    </div>
+      </div>
     <div class="clearfix"></div>
 
     
@@ -351,12 +271,9 @@
     
     
     <footer>
-      <div id="footer">
-        Copyright &copy; 2012 by Company Name
-        <a href="http://www.w3.org/html/logo/" target="_blank" class="html5">
-            <img src="img/HTML5_1Color_White.png" alt="HTML5 Powered with CSS3 / Styling, and Semantis" title="HTML5 Powered with CSS3 / Styling, and Semantics">
-        </a>
-      </div>
+        <div id="footer">
+            2014 &copy; Web Sponsor. | Powered by InnoSTARK Technologies
+        </div>
     </footer>
   </div> <!--! end of #container -->
 
@@ -376,12 +293,13 @@
   <script src="js/iscroll.js"></script>
   <script src="js/jquery.flexslider-min.js"></script>
   <script src="js/photoswipe/klass.min.js"></script>
-  <script src="js/photoswipe/code.photoswipe.jquery-3.0.5.min.js"></script>
+    <script src="js/photoswipe/code.photoswipe.jquery-3.0.5.min.js"></script>
+    <script type="text/javascript" src="js/OSS_Script.js"></script>
   <script>
     $(document).bind("mobileinit", function(){
       
-          $.mobile.defaultPageTransition = 'none';
-          //$.mobile.defaultPageTransition = 'slide';
+          //$.mobile.defaultPageTransition = 'none';
+          $.mobile.defaultPageTransition = 'slide';
           //$.mobile.defaultPageTransition = 'fade';
           //$.mobile.defaultPageTransition = 'flow';
           //$.mobile.defaultPageTransition = 'flip';
@@ -391,6 +309,11 @@
           
           //enable this if you want your website to run without jQuery Mobile Navigation
           $.mobile.ajaxEnabled = false;
+    });
+    $(document).ready(function() {
+        $(document).on("pageshow", "#splash", function() {
+            //$.mobile.showPageLoadingMsg();
+        });
     });
   </script>
   <!--<script src="js/jquery.mobile-1.1.1.min.js"></script>-->
