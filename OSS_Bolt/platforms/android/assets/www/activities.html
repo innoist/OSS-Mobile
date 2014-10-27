@@ -82,50 +82,21 @@
       <div class="upperMenu">
         <div class="pagesMenu flexslider">
           <ul class="slides">
+              
               <li>
-                  <a href="about.html" id="linkAbout" class="pageLink pageLink-1-1">
+                  <a href="index.html" id="linkBlog" class="pageLink pageLink-1-1" >
                     <div class="iconBox">
-                      <img src="img/home/icon-about.jpg" alt="About">
+                      <img src="img/home/icon-logout.png" alt="Logout">
                     </div>
                     <div class="titleBox">
-                      About
-                    </div>
-                  </a>
-              </li>
-              <li>
-                  <a href="services.html" id="linkServices" class="pageLink pageLink-1-1" >
-                    <div class="iconBox">
-                      <img src="img/home/icon-services.jpg" alt="Services">
-                    </div>
-                    <div class="titleBox">
-                      Services
-                    </div>
-                  </a>
-              </li>
-              <li>            
-                  <a href="portfolio.html" id="linkPortfolio" class="pageLink pageLink-1-1 ">
-                    <div class="iconBox">
-                      <img src="img/home/icon-portfolio.jpg" alt="Portfolio">
-                    </div>
-                    <div class="titleBox">
-                      Portfolio
-                    </div>
-                  </a>
-              </li>
-              <li>
-                  <a href="blog.html" id="linkBlog" class="pageLink pageLink-1-1" >
-                    <div class="iconBox">
-                      <img src="img/home/icon-blog2.jpg" alt="Blog Page">
-                    </div>
-                    <div class="titleBox">
-                      Blog
+                      Logout
                     </div>
                   </a>
               </li>
               <li>            
                   <a href="activityLog.html" id="linkContact" class="pageLink pageLink-1-1 " >
                     <div class="iconBox">
-                      <img src="img/home/icon-contact.jpg" alt="Contact">
+                      <img src="img/home/icon-logactivity.png" alt="Contact">
                     </div>
                     <div class="titleBox">
                       Log Activities
@@ -212,7 +183,8 @@
         
         </div>
     </div>
-    <div class="clearfix"></div>
+      <div class="clearfix"></div>
+      <div class="separator"></div>
     <footer>
       <div id="footer">
         Copyright &copy; 2012 by Company Name
@@ -263,6 +235,8 @@
         $(document).on("pageshow", "#container", function () {
             LoadUserActivitiesDetail();
         });
+        var c3 = document.getElementById("linkBlog");
+        c3.addEventListener("click", logoutUser, false);
         //LoadUserActivitiesDetail();
         //var btnLoadAct = document.getElementById("loadAct");
         //btnLoadAct.addEventListener("click", LoadUserActivitiesDetail, false);

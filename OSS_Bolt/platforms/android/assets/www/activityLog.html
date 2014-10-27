@@ -73,7 +73,13 @@
 </div>-->
 
 
-
+    <div class="app" style="display: none;">
+        <!--<h1>Apache Cordova</h1>-->
+        <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
+        </div>
+    </div>
 
   <div id="container" data-role="page" >
     
@@ -84,49 +90,19 @@
                 <div class="pagesMenu flexslider">
             <ul class="slides">
                 <li>
-                    <a href="about.html" id="linkAbout" class="pageLink pageLink-1-1">
-                      <div class="iconBox">
-                        <img src="img/home/icon-about.jpg" alt="About">
-                      </div>
-                      <div class="titleBox">
-                        About
-                      </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="services.html" id="linkServices" class="pageLink pageLink-1-1" >
-                      <div class="iconBox">
-                        <img src="img/home/icon-services.jpg" alt="Services">
-                      </div>
-                      <div class="titleBox">
-                        Services
-                      </div>
-                    </a>
-                </li>
-                <li>            
-                    <a href="portfolio.html" id="linkPortfolio" class="pageLink pageLink-1-1 ">
-                      <div class="iconBox">
-                        <img src="img/home/icon-portfolio.jpg" alt="Portfolio">
-                      </div>
-                      <div class="titleBox">
-                        Portfolio
-                      </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="blog.html" id="linkBlog" class="pageLink pageLink-1-1" >
-                      <div class="iconBox">
-                        <img src="img/home/icon-blog2.jpg" alt="Blog Page">
-                      </div>
-                      <div class="titleBox">
-                        Blog
-                      </div>
-                    </a>
-                </li>
+                  <a href="index.html" id="linkBlog" class="pageLink pageLink-1-1" >
+                    <div class="iconBox">
+                      <img src="img/home/icon-logout.png" alt="Logout">
+                    </div>
+                    <div class="titleBox">
+                      Logout
+                    </div>
+                  </a>
+              </li>
                 <li>            
                     <a href="activityLog.html" id="linkContact" class="pageLink pageLink-1-1 " >
                       <div class="iconBox">
-                        <img src="img/home/icon-contact.jpg" alt="Contact">
+                        <img src="img/home/icon-logactivity.png" alt="Contact">
                       </div>
                       <div class="titleBox">
                         Log Activities
@@ -171,7 +147,7 @@
     </div>
     -->
     
-    <div id="pageContact" class="page">
+    <div id="pageActivityLog" class="page">
         <div class="content">
             <div class="groupBox innerContent">
                 
@@ -201,14 +177,17 @@
                             <label for="comment">Activity Comment: </label>
                             <textarea id="comment" name="textarea"></textarea>
                             <label>Upload Image: </label>
-
-                            <button data-mini="true" data-inline="true" class="ui-corner-all ui-button" data-theme="b">Capture Photo</button>
-                            <button data-mini="true" data-inline="true" class="ui-corner-all ui-button" data-theme="b">From Photo Gallery</button>
-                            <img style="width:80%; height:30%" id="largeImage" src="" />
+                            <br/>
+                            <div class="btnLogAct">
+                                <button data-mini="true" data-inline="true" class="ui-corner-all ui-button" data-theme="b" onclick="capturePhoto();">Capture Photo</button>
+                                <button data-mini="true" data-inline="true" class="ui-corner-all ui-button" data-theme="b" onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Gallery</button>
+                            </div>    
+                            <img style="width:100%; height:40%" id="largeImage" src="" />
                         </div>
+                        <div class="separator"></div>
                         <div class="btnLogAct">
                             <a id="save" href="#" class="button buttonStrong ui-corner-all ui-button ">Save</a>
-                        <a id="cancel" href="activities.html" class="button buttonStrong ui-corner-all ui-button ">Cancel</a>
+                            <a id="cancel" href="activities.html" class="button buttonStrong ui-corner-all ui-button ">Cancel</a>
                         </div>
                     </div>
                     <!-- end group box -->
@@ -237,8 +216,10 @@
     </footer>
   </div> <!--! end of #container -->
 
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 
-  <!-- JavaScript at the bottom for fast page loading -->
+    <!-- JavaScript at the bottom for fast page loading -->
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
   <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
@@ -255,25 +236,33 @@
   <script src="js/photoswipe/klass.min.js"></script>
     <script src="js/photoswipe/code.photoswipe.jquery-3.0.5.min.js"></script>
     <script type="text/javascript" src="js/OSS_Script.js"></script>
-  <script>
-    $(document).bind("mobileinit", function(){
+    <script>
+        document.addEventListener("deviceready", onDeviceReady, false);
+        $(document).bind("mobileinit", function(){
       
-          $.mobile.defaultPageTransition = 'none';
-          //$.mobile.defaultPageTransition = 'slide';
-          //$.mobile.defaultPageTransition = 'fade';
-          //$.mobile.defaultPageTransition = 'flow';
-          //$.mobile.defaultPageTransition = 'flip';
-          //$.mobile.defaultPageTransition = 'pop';
+            $.mobile.defaultPageTransition = 'none';
+            //$.mobile.defaultPageTransition = 'slide';
+            //$.mobile.defaultPageTransition = 'fade';
+            //$.mobile.defaultPageTransition = 'flow';
+            //$.mobile.defaultPageTransition = 'flip';
+            //$.mobile.defaultPageTransition = 'pop';
           
-          $.mobile.ignoreContentEnabled = true;
+            $.mobile.ignoreContentEnabled = true;
           
-          //enable this if you want your website to run without jQuery Mobile Navigation
-          $.mobile.ajaxEnabled = false;
-    });
-    $(document).ready(function () {
-        $("#panelFBPost").hide();
-    });
-  </script>
+            //enable this if you want your website to run without jQuery Mobile Navigation
+            $.mobile.ajaxEnabled = false;
+        });
+        $(document).ready(function () {
+            $("#panelFBPost").hide();
+            var btnLogoutUser = document.getElementById("linkBlog");
+            btnLogoutUser.addEventListener("click", logoutUser, false);
+            PopulateActivities();
+            var btnSaveLog = document.getElementById("save");
+            btnSaveLog.addEventListener("click", saveActivityLog, false);
+        });
+    
+        app.initialize();
+    </script>
   <!--<script src="js/jquery.mobile-1.1.1.min.js"></script>-->
   <script src="js/jquery.mobile-1.2.0.min.js"></script>
   <!--<script src="http://maps.google.com/maps/api/js?sensor=false"></script>-->
