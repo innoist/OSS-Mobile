@@ -67,10 +67,10 @@
   <script src="js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 <body>
-    <div id="splash" class="splash">
+    <!--<div id="splash" class="splash">
         <img id="splashBg" src="img/splash.jpg" alt="Splash Image">
         <img id="splashTitle" src="img/jquerymobile/ajax-loader-c.gif" alt="Splash Image" style="width: 40px; height: 40px; margin: 0 auto;">
-    </div>
+    </div>-->
 
 
     <div class="app" style="display: none;">
@@ -90,7 +90,7 @@
                 <div class="pagesMenu flexslider">
             <ul class="slides">
                 <li>
-                  <a href="contact.html" id="linkBlog" class="pageLink pageLink-1-1" >
+                  <a href="#" id="linkContact" class="pageLink pageLink-1-1" >
                     <div class="iconBox">
                       <img src="img/home/icon-contact.png" alt="Logout">
                     </div>
@@ -100,7 +100,7 @@
                   </a>
               </li>
                 <li>            
-                    <a href="activityLog.html" id="linkContact" class="pageLink pageLink-1-1 " >
+                    <a href="#" id="linkLog" class="pageLink pageLink-1-1 " >
                       <div class="iconBox">
                         <img src="img/home/icon-logactivity.jpg" alt="Contact">
                       </div>
@@ -110,7 +110,7 @@
                     </a>
                 </li>
                 <li>            
-                    <a href="activities.html" id="linkExtra1" class="pageLink pageLink-1-1" >
+                    <a href="#" id="linkActivity" class="pageLink pageLink-1-1" >
                       <div class="iconBox">
                         <img src="img/icon-yellow.jpg" alt="Sample Page 1">
                       </div>
@@ -124,7 +124,7 @@
       </div>
 
       <div id="header">
-        <a href="index.html" class="homeButton" data-direction="reverse"></a>
+        <a href="index.html#container" class="homeButton" data-transition="slide" data-direction="reverse"></a>
         <a href="#" class="menuButton"></a>
         <h1> Log Activity</h1>
         <!--<h2> Company Name, Service Sector</h2>-->
@@ -173,7 +173,7 @@
                         </select>
                         <input id="chkbFB" type="checkbox" onclick="IsFBPost(this);"/>
                         <label for="chkbFB"> Is FB Post</label> <br />
-                        <div id="panelFBPost">
+                        <div id="panelFBPost" style="display: none">
                             <label for="comment">Activity Comment: </label>
                             <textarea id="comment" name="textarea"></textarea>
                             <label>Upload Image: </label>
@@ -186,17 +186,14 @@
                         </div>
                         <div class="separator"></div>
                         <div class="btnLogAct">
-                            <a id="save" href="#" class="button buttonStrong ui-corner-all ui-button ">Save</a>
-                            <a id="cancel" href="index.html#container" class="button buttonStrong ui-corner-all ui-button ">Cancel</a>
+                            <button id="save" data-inline="true" class="ui-corner-all ui-button" data-theme="b" onclick="saveActivityLog()">Save</button>
+                            <button id="cancel" data-inline="true" class="ui-corner-all ui-button" data-theme="b" onclick="loadHomePage()">Cancel</button>
                         </div>
                     </div>
                     <!-- end group box -->
                 </div>
             </div>
-        
         </div>
-        
-        
     </div>
     <div class="clearfix"></div>
 
@@ -256,9 +253,6 @@
             PopulateActivities();
             var btnSaveLog = document.getElementById("save");
             btnSaveLog.addEventListener("click", saveActivityLog, false);
-            $(document).on("pageshow", "#splash", function () {
-                //$.mobile.showPageLoadingMsg();
-            });
         });
     
         app.initialize();

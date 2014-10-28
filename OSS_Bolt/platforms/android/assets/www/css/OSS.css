@@ -1,27 +1,42 @@
 .clearBorder-ul-li {
     border-bottom: none !important;
 }
+
+.btnLogin {
+    display: block !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+
+/*
+    remove borfer between header and content in a jq page
+}*/
+.ui-bar-a {
+    border: none !important;
+}
+
 .anchorBtnCenter {
     display: block !important;
     margin: 0 auto !important;
     width: 10% !important;
     text-align: center !important;
-    /*display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+}
+
+#loginPage {
+    background: #054950 !important;
+}
+
+.loginLogo {
+    margin-top: 2% !important;
     text-align: center !important;
-    width: 100%;
-    height: 100%;*/
 }
 
 .groupBox-marginTop {
-    margin-top: 45% !important;
+    margin-left: auto !important;
+    margin-right: auto !important; 
+    width: 80% !important;
+    margin-top: 7% !important;
 }
-
-/*#pivotTabs #scroller ul li a {
-    margin-left: 2% !important;
-    text-transform: uppercase !important;
-}*/
 
 .activityLogContainer {
     padding: 2% !important;
@@ -60,7 +75,14 @@
     height: 87% !important;
 }
 
+.greenWhite {
+    background: #2a656b !important;
+    opacity: 1 !important;
+    color: white !important;
+}
+
 .groupBoxHome .flexsliderHome {
+    min-height: 25% !important;
     max-height: none !important;
     overflow: hidden !important;
 }
@@ -81,9 +103,3 @@
     overflow: hidden !important;
     margin-top: 10px !important;
 }
-
-/*.jQSpinner {
-    width: 40px; 
-    height: 40px; 
-    margin: 0 auto; 
-}*/

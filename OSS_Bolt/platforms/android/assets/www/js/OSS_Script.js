@@ -6,10 +6,56 @@ var baseURL = "http://118.139.182.155/OSS";
 //var baseURL = "http://localhost:43069";
    
 
-//$(document).on("pageshow", "#loginPage", function () {
-//    alert('123');
-//    $.mobile.hidePageLoadingMsg();
-//});
+$(document).on("pageshow", "#activities", function () {
+    alert('123');
+});
+
+$(document).ready(function() {
+    registerEventListners();
+});
+
+function loadActivitiesPage() {
+    $.mobile.changePage("activities.html", { transition: "slide" });
+    setTimeout(function () {
+        registerEventListners();
+        LoadUserActivitiesDetail();
+    }, 1000);
+    
+}
+
+function registerEventListners() {
+    var btnLoadAct = document.getElementById("linkContact");
+    btnLoadAct.addEventListener("click", loadContactPage, false);
+    var btnLoadAct = document.getElementById("linkLog");
+    btnLoadAct.addEventListener("click", loadLogPage, false);
+    var btnLoadAct = document.getElementById("linkActivity");
+    btnLoadAct.addEventListener("click", loadActivitiesPage, false);
+}
+
+function loadContactPage() {
+    $.mobile.changePage("contact.html", { transition: "slide" });
+    setTimeout(function () {
+        registerEventListners();
+    }, 500);
+
+}
+
+function loadLogPage() {
+    setTimeout(function () {
+        $.mobile.changePage("activityLog.html", { transition: "slide" });
+        PopulateActivities();
+    }, 500);
+
+}
+
+function loadHomePage() {
+    //$.mobile.changePage("index.html#container", {
+    //    transition: "slide",
+    //    reverse: true,
+    //    changeHash: true
+    //});
+    $.mobile.changePage("index.html#container", { transition: "slide", reverse: true });
+} 
 
 $(document).on("pagebeforeshow", "#loginPage", function () {
     
@@ -93,7 +139,7 @@ function authenticateUser() {
                     localStorage.setItem("OrgId", data.OrgId);
                     localStorage.setItem("UserId", data.UserId);
                     $.mobile.hidePageLoadingMsg();
-                    $.mobile.changePage("#container", { transition: "none" });
+                    $.mobile.changePage("#container", { transition: "slide" });
                     //ValidateHideBusyIndicator();
                 } else {
                     $.mobile.hidePageLoadingMsg();
@@ -250,16 +296,6 @@ function logoutUser() {
 
 var pictureSource;   // picture source
 var destinationType; // sets the format of returned value
-
-
-
-// device APIs are available
-//
-function onDeviceReady() {
-    pictureSource = navigator.camera.PictureSourceType;
-    destinationType = navigator.camera.DestinationType;
-    
-}
 
 // Called when a photo is successfully retrieved
 //

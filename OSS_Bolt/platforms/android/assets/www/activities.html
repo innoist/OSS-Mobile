@@ -67,10 +67,10 @@
   <script src="js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 <body>
-    <div id="splash" class="splash"> 
+    <!--<div id="splash" class="splash"> 
       <img id="splashBg" src="img/splash.jpg" alt="Splash Image">
       <img id="splashTitle" src="img/jquerymobile/ajax-loader-c.gif" alt="Splash Image" style="width: 40px; height: 40px; margin: 0 auto;">
-    </div>
+    </div>-->
 
 
 
@@ -84,17 +84,25 @@
           <ul class="slides">
               
               <li>
-                  <a href="contact.html" id="linkBlog" class="pageLink pageLink-1-1" >
-                    <div class="iconBox">
-                      <img src="img/home/icon-contact.png" alt="Logout">
-                    </div>
-                    <div class="titleBox">
-                      Contact Us
-                    </div>
-                  </a>
+                  <button id="linkContact" class="pageLink pageLink-1-1" onclick="loadContactPage()">
+                      <div class="iconBox">
+                          <img src="img/home/icon-contact.png" alt="Logout">
+                      </div>
+                      <div class="titleBox">
+                          Contact Us
+                      </div>
+                  </button>
+                  <!--<a href="#" id="linkContact" class="pageLink pageLink-1-1" >
+                      <div class="iconBox">
+                          <img src="img/home/icon-contact.png" alt="Logout">
+                      </div>
+                      <div class="titleBox">
+                          Contact Us
+                      </div>
+                  </a>-->
               </li>
               <li>            
-                  <a href="activityLog.html" id="linkContact" class="pageLink pageLink-1-1 " >
+                  <a href="#" id="linkLog" class="pageLink pageLink-1-1 " >
                     <div class="iconBox">
                       <img src="img/home/icon-logactivity.jpg" alt="Contact">
                     </div>
@@ -104,7 +112,7 @@
                   </a>
               </li>
               <li>            
-                  <a href="activities.html" id="linkExtra1" class="pageLink pageLink-1-1" >
+                  <a href="#" id="linkActivity" class="pageLink pageLink-1-1" >
                     <div class="iconBox">
                       <img src="img/icon-yellow.jpg" alt="Sample Page 1">
                     </div>
@@ -118,7 +126,7 @@
       </div>
 
       <div id="header">
-        <a href="index.html" class="homeButton" data-direction="reverse"></a>
+        <a href="index.html#container" class="homeButton" data-transition="slide" data-direction="reverse"></a>
         <a href="#" class="menuButton"></a>
         
         <h1> Activities Performed &amp; Points</h1>
@@ -231,11 +239,8 @@
             $(document).on("pageshow", "#container", function () {
                 LoadUserActivitiesDetail();
             });
-            $(document).on("pageshow", "#splash", function () {
-                //$.mobile.showPageLoadingMsg();
-            });
-            //var c3 = document.getElementById("linkBlog");
-            //c3.addEventListener("click", logoutUser, false);
+            //var btnHome = document.getElementById("homeButton");
+            //btnHome.addEventListener("click", loadHomePage, false);
             //LoadUserActivitiesDetail();
             //var btnLoadAct = document.getElementById("loadAct");
             //btnLoadAct.addEventListener("click", LoadUserActivitiesDetail, false);

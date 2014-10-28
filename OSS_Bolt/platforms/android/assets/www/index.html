@@ -83,6 +83,9 @@
         </div>
 
         <div data-role="page" id="loginPage">
+            <div data-role="header" style="background: #054950;" class="loginLogo">
+                <img src="img/home/logo.jpg"/>
+            </div>
             <div data-role="content" class="groupBox page content groupBox-marginTop">
                 <ul>
                     <li class="clearBorder-ul-li">
@@ -92,15 +95,19 @@
                         <input type="password" placeholder="Password" name="password" id="password">
                     </li>
                 </ul>
-                <a href="#" id="login" class="button buttonStrong ui-corner-all ui-button anchorBtnCenter" data-theme="b" data-mini="true">Login</a>
+                <!--<a id="login" class="ui-btn ui-shadow ui-icon-arrow-r ui-btn-icon-right ui-btn-corner-all ui-nodisc-icon ui-alt-icon anchorBtnCenter">Login</a>-->
+                <!--<button id="login" class="button buttonStrong ui-corner-all ui-button ui-icon-arrow-r ui-btn-icon-right anchorBtnCenter green" data-mini="true">Login <img src="img/arrow-right.png" style="margin-left:5px;width: 20px; height: 20px;"></button>-->
+                <div class="btnLogin">
+                    <a id="login" class="greenWhite" data-icon="arrow-r" data-iconpos="right" data-theme="d" data-role="button">Login</a>
+                </div>
             </div>
         </div>
 
-        <div data-role="page" id="splash" class="splash"> 
+        <!--<div data-role="page" id="splash" class="splash"> 
             <img id="splashBg" src="img/splash.jpg" alt="Splash Image">
             <img id="splashTitle" src="img/jquerymobile/ajax-loader-c.gif" alt="Splash Image" style="width: 40px; height: 40px; margin: 0 auto;">
             
-        </div>
+        </div>-->
 
       <div data-role="page"  id="container"  data-role="page" >
             <header>
@@ -145,7 +152,7 @@
               <div class="separator"></div>
       
               <div class="pagesMenu">
-                <a href="contact.html" id="linkBlog" class="pageLink pageLink-1-1" >
+                <a href="#" id="linkContact" class="pageLink pageLink-1-1" >
                   <div class="iconBox">
                     <img src="img/home/icon-contact.png" alt="Logout">
                   </div>
@@ -154,7 +161,7 @@
                   </div>
                 </a>
         
-                <a href="activityLog.html" id="linkContact" class="pageLink pageLink-1-1">
+                <a href="#" id="linkLog" class="pageLink pageLink-1-1">
                   <div class="iconBox">
                     <img src="img/home/icon-logactivity.jpg" alt="Log Activities">
                   </div>
@@ -164,7 +171,7 @@
                 </a>
         
         
-                <a href="activities.html" id="linkExtra1" class="pageLink pageLink-1-1" >
+                <a href="#" id="linkActivity" class="pageLink pageLink-1-1" data-rel="external">
                   <div class="iconBox">
                     <img src="img/icon-yellow.jpg" alt="Sample Page 1">
                   </div>
@@ -211,7 +218,7 @@
           <script>
               $(document).bind("mobileinit", function () {
                   //$.mobile.defaultPageTransition = 'none';
-                  $.mobile.defaultPageTransition = 'slide';
+                  //$.mobile.defaultPageTransition = 'slide';
                   //$.mobile.defaultPageTransition = 'fade';
                   //$.mobile.defaultPageTransition = 'flow';
                   //$.mobile.defaultPageTransition = 'flip';
@@ -230,11 +237,12 @@
                   var btnLogout = document.getElementById("logout");
                   btnLogout.addEventListener("click", logoutUser, false);
 
-                  $(document).on("pageshow", "#splash", function () {
-                      //$.mobile.showPageLoadingMsg();
-                  });
-                  //var c4 = document.getElementById("linkExtra1");
-                  //c4.addEventListener("click", showSpinner, false);
+                  //var btnLoadAct = document.getElementById("linkContact");
+                  //btnLoadAct.addEventListener("click", loadContactPage, false);
+                  //var btnLoadAct = document.getElementById("linkLog");
+                  //btnLoadAct.addEventListener("click", loadLogPage, false);
+                  //var btnLoadAct = document.getElementById("linkActivity");
+                  //btnLoadAct.addEventListener("click", loadActivitiesPage, false);
                   //var c4 = document.getElementById("logActivity");
                   //c4.addEventListener("click", loadLogActivity, false);
                   //var c5 = document.getElementById("cancel");

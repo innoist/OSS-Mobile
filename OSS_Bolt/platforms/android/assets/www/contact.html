@@ -67,10 +67,10 @@
   <script src="js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 <body>
-    <div id="splash" class="splash"> 
+    <!--<div id="splash" class="splash"> 
       <img id="splashBg" src="img/splash.jpg" alt="Splash Image">
       <img id="splashTitle" src="img/jquerymobile/ajax-loader-c.gif" alt="Splash Image" style="width: 40px; height: 40px; margin: 0 auto;">
-    </div>
+    </div>-->
 
 
 
@@ -84,7 +84,7 @@
                 <div class="pagesMenu flexslider">
             <ul class="slides">
                 <li>
-                  <a href="contact.html" id="linkBlog" class="pageLink pageLink-1-1" >
+                  <a href="#" id="linkContact" class="pageLink pageLink-1-1" >
                     <div class="iconBox">
                       <img src="img/home/icon-contact.png" alt="Logout">
                     </div>
@@ -93,32 +93,32 @@
                     </div>
                   </a>
               </li>
-              <li>            
-                  <a href="activityLog.html" id="linkContact" class="pageLink pageLink-1-1 " >
-                    <div class="iconBox">
-                      <img src="img/home/icon-logactivity.jpg" alt="Contact">
-                    </div>
-                    <div class="titleBox">
-                      Log Activities
-                    </div>
-                  </a>
-              </li>
-              <li>            
-                  <a href="activities.html" id="linkExtra1" class="pageLink pageLink-1-1" >
-                    <div class="iconBox">
-                      <img src="img/icon-yellow.jpg" alt="Sample Page 1">
-                    </div>
-                    <div class="titleBox">
-                      Activities
-                    </div>
-                  </a>
-              </li>
+                <li>            
+                    <a href="#" id="linkLog" class="pageLink pageLink-1-1 " >
+                      <div class="iconBox">
+                        <img src="img/home/icon-logactivity.jpg" alt="Contact">
+                      </div>
+                      <div class="titleBox">
+                        Log Activities
+                      </div>
+                    </a>
+                </li>
+                <li>            
+                    <a href="#" id="linkActivity" class="pageLink pageLink-1-1" >
+                      <div class="iconBox">
+                        <img src="img/icon-yellow.jpg" alt="Sample Page 1">
+                      </div>
+                      <div class="titleBox">
+                        Activities
+                      </div>
+                    </a>
+                </li>
             </ul>
         </div>
       </div>
 
       <div id="header">
-        <a href="index.html" class="homeButton" data-direction="reverse"></a>
+        <a href="index.html#container" class="homeButton" data-transition="slide" data-direction="reverse"></a>
         <a href="#" class="menuButton"></a>
         <h1> Contact</h1>
         <!--<h2> Company Name, Service Sector</h2>-->
@@ -311,9 +311,7 @@
           $.mobile.ajaxEnabled = false;
     });
     $(document).ready(function() {
-        $(document).on("pageshow", "#splash", function() {
-            //$.mobile.showPageLoadingMsg();
-        });
+        
     });
   </script>
   <!--<script src="js/jquery.mobile-1.1.1.min.js"></script>-->
