@@ -3,10 +3,16 @@ var imageURI;
 
 var baseURL = "http://118.139.182.155/OSS";
 
-//var baseURL = "http://localhost:43069/";
-    
+//var baseURL = "http://localhost:43069";
+   
+
+//$(document).on("pageshow", "#loginPage", function () {
+//    alert('123');
+//    $.mobile.hidePageLoadingMsg();
+//});
+
 $(document).on("pagebeforeshow", "#loginPage", function () {
-    $.mobile.hidePageLoadingMsg();
+    
     if (localStorage.getItem("Email") != "" || localStorage.getItem("Email") != null) {
 
         $.ajax({
@@ -34,6 +40,9 @@ $(document).on("pagebeforeshow", "#loginPage", function () {
         //alert("Invalid Credentials");
         window.location.hash = 'loginPage';
         $.mobile.initializePage();
+        
+        
+
     }
 });
 
@@ -213,10 +222,6 @@ function IsFBPost() {
 }
 
 
-//$(document).on("pageshow", "#activityPage", function () {
-//    ShowBusyIndicator();
-//    LoadUserActivities();
-//});
 
 ////$(document).on("pagebeforeshow", "#loginPage", function () {
     

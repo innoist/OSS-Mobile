@@ -82,6 +82,8 @@
     margin-top: 10px !important;
 }
 
-.containerImg { position:relative; }
-.imgA1 { position:absolute; top: 0px; left: 0px; } 
-.imgB1 { position:absolute; top: 0px; left: 0px; } 
+/*.jQSpinner {
+    width: 40px; 
+    height: 40px; 
+    margin: 0 auto; 
+}*/
