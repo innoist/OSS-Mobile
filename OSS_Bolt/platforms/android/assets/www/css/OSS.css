@@ -26,6 +26,10 @@
     background: #054950 !important;
 }
 
+#containerIndex{
+    background: #054950 !important;
+}
+
 .loginLogo {
     margin-top: 2% !important;
     text-align: center !important;
@@ -53,7 +57,6 @@
 }
 
 .headerIndex {
-    background: #054950 !important;
     margin-top: 0.5% !important;
     text-align: left !important;
     height: 44px !important;
@@ -61,7 +64,6 @@
 
 #header {
     background: #054950 !important;
-    margin-top: 5px !important;
 }
 
 #footer {

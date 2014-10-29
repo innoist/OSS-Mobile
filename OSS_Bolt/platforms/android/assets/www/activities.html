@@ -75,7 +75,7 @@
 
 
 
-  <div id="container" data-role="page" >
+  <div id="contActivity" data-role="page" >
             
     <header>
     
@@ -102,7 +102,7 @@
                   </a>-->
               </li>
               <li>            
-                  <a href="#" id="linkLog" class="pageLink pageLink-1-1 " >
+                  <a href="#" id="linkLog" class="pageLink pageLink-1-1 ">
                     <div class="iconBox">
                       <img src="img/home/icon-logactivity.jpg" alt="Contact">
                     </div>
@@ -222,8 +222,8 @@
     <script>
         $(document).bind("mobileinit", function(){
       
-            //$.mobile.defaultPageTransition = 'none';
-            $.mobile.defaultPageTransition = 'slide';
+            $.mobile.defaultPageTransition = 'none';
+            //$.mobile.defaultPageTransition = 'slide';
             //$.mobile.defaultPageTransition = 'fade';
             //$.mobile.defaultPageTransition = 'flow';
             //$.mobile.defaultPageTransition = 'flip';
@@ -236,7 +236,7 @@
         });
         $(document).ready(function () {
             $("#activities").hide();
-            $(document).on("pageshow", "#container", function () {
+            $(document).on("pageshow", "#contActivity", function () {
                 LoadUserActivitiesDetail();
             });
             //var btnHome = document.getElementById("homeButton");

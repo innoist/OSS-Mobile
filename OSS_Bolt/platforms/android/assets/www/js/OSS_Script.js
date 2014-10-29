@@ -1,18 +1,29 @@
 var doProceed = false;
 var imageURI;
+var imagePath;
+//var baseURL = "http://118.139.182.155/OSS";
 
-var baseURL = "http://118.139.182.155/OSS";
+var baseURL = "http://192.168.0.110/OSS.web";
 
 //var baseURL = "http://localhost:43069";
    
 
-$(document).on("pageshow", "#activities", function () {
-    alert('123');
+$(document).on("pageinit", "#loginPage", function () {
+    setTimeout(function () {
+        $.mobile.hidePageLoadingMsg();
+    }, 2000);
+    
 });
 
-$(document).ready(function() {
-    registerEventListners();
-});
+//$(document).on('pageinit', '#contActivity', function (event) {
+//    $(document).on('vclick', '#linkLog', function () {
+//        loadLogPage();
+//    });
+//});
+
+//$(document).ready(function () {
+//    registerEventListners();
+//});
 
 function loadActivitiesPage() {
     $.mobile.changePage("activities.html", { transition: "slide" });
@@ -41,8 +52,8 @@ function loadContactPage() {
 }
 
 function loadLogPage() {
+    $.mobile.changePage("activityLog.html", { transition: "slide" });
     setTimeout(function () {
-        $.mobile.changePage("activityLog.html", { transition: "slide" });
         PopulateActivities();
     }, 500);
 
@@ -67,11 +78,13 @@ $(document).on("pagebeforeshow", "#loginPage", function () {
             type: 'Get',
             success: function (data) {
                 if (data.IsAuthenticated) {
+                    $("#loginPage").css("display", "none");
                     window.location.hash = 'container';
                     $.mobile.initializePage();
                     //alert("Already Authenticated");
                 } else {
                     //alert("Invalid Credentials");
+                    $("#loginPage").css("display", "block");
                     window.location.hash = 'loginPage';
                     $.mobile.initializePage();
                 }
@@ -84,6 +97,7 @@ $(document).on("pagebeforeshow", "#loginPage", function () {
     }
     if (localStorage.getItem("Email") == "" || localStorage.getItem("Email") == null) {
         //alert("Invalid Credentials");
+        $("#loginPage").css("display", "block");
         window.location.hash = 'loginPage';
         $.mobile.initializePage();
         
@@ -107,6 +121,7 @@ function showSpinner() {
 function clearLocalStorage() {
     window.localStorage.clear();
     $('#result').empty();
+    $("#loginPage").css("display", "block");
     window.location.hash = 'loginPage';
     $.mobile.initializePage();
 }
@@ -139,6 +154,7 @@ function authenticateUser() {
                     localStorage.setItem("OrgId", data.OrgId);
                     localStorage.setItem("UserId", data.UserId);
                     $.mobile.hidePageLoadingMsg();
+                    $("#loginPage").css("display", "none");
                     $.mobile.changePage("#container", { transition: "slide" });
                     //ValidateHideBusyIndicator();
                 } else {
@@ -315,6 +331,7 @@ function onPhotoDataSuccess(imageData) {
     // The inline CSS rules are used to resize the image
     //
     largeImage.src = "data:image/jpeg;base64," + imageData;
+    //$('#image').val("data:image/jpeg;base64," + imageData);
 }
 
 // Called when a photo is successfully retrieved
@@ -343,8 +360,9 @@ function capturePhoto() {
     // Take picture using device camera and retrieve image as base64-encoded string
     navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
         quality: 50,
-        destinationType: destinationType.DATA_URL
+        destinationType: destinationType.DATA_URL,
     });
+    
 }
 
 // A button will call this function
@@ -379,7 +397,7 @@ function saveActivityLog() {
     
     if ($("#chkbFB").is(":checked")) {
         if (validateActivityLogFb()) {
-            //saveActivityLogFb();
+            saveActivityLogFb();
         }
     } else {
         if (validateActivityLogNoFb()) {
@@ -389,14 +407,14 @@ function saveActivityLog() {
 }
 
 function validateActivityLogFb() {
-    imageURI = document.getElementById('largeImage').getAttribute("src");
+    imagePath = document.getElementById('largeImage').getAttribute("src");
     if ($("#select-choice-1").val() == "none" || $('#comment').val() == '' || $("#date").val() == "") {
         alert("All fields are mendatory");
         return false;
     }
     // Validate date <= today
     
-    if (!imageURI) {
+    if (!imagePath) {
         alert('Please select an image first.');
         return false;
     }
@@ -411,7 +429,6 @@ function validateActivityLogNoFb() {
     // Validate date <= today
     var ctlDate = Date.parse($("#date").val());
     var dt = new Date();
-    //var currDate = dt.getFullYear() + '-' + (dt.getMonth() + 1) + '-' + dt.getDate();;
     if (ctlDate > Date.parse(dt)) {
         alert("Select a correct date");
         return false;
@@ -419,52 +436,57 @@ function validateActivityLogNoFb() {
     return true;
 }
 
-//function saveActivityLogFb() {
-//    //"ActivityId": $("#select-choice-1").val(),       "Date": $("#date").val(),"UploadImage": imageURI,"IsFbPost": $("#chkbFB").val()
-//    var isFbPost = $("#chkbFB").is(':checked');
+function saveActivityLogFb() {
+    var isFbPost = $("#chkbFB").is(':checked');
+    //$('#image')[0].value = "C:\fakepath\icon.png";
+    //$('#image').select($('img[alt="user"]').attr('src'));
+    //$('#image')[0].value = $('img[alt="user"]').attr('src');
+    var actLogData = {
+        "ActivityId": $("#select-choice-1").val(),
+        "UserId": window.localStorage.getItem("UserId"),
+        "Date": $("#date").val(),
+        "Comment": $('#comment').val(),
+        "IsFbPost": isFbPost,
+        "ImagePath": "/img/",
+        "ImageName": "ABC"
+        //"UploadImage": 
+};
     
-//    var actLogData = {
-//        "ActivityId":22, 
-//        "UserId": window.localStorage.getItem("UserId"),
-//        "Comment": $('#comment').val(),
-//        "IsFbPost":isFbPost
-        
-//    };
+    $.ajax({
+        type: "POST",
+        url: baseURL + '/Api/UserActivity',
+        async: true,
+        cache: false,
+        data: "ABC",
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8', //When sending data to the server
+        dataType: 'json',  //The type of data that you're expecting back from the server.
+        success: saveSuccess
+    });
 
+    ////selected photo URI is in the src attribute (we set this on getPhoto)
+    //var imageURI = document.getElementById('largeImage').getAttribute("src");
+    //if (!imageURI) {
+    //    alert('Please select an image first.');
+    //    return;
+    //}
 
-//    $.ajax({
-//        type: "POST",
-//        url: baseURL + '/Api/UserActivity',
-//        data: JSON.stringify(actLogData),
-           
-//        success: saveSuccess,
-//        dataType: 'json'
-//    });
+    ////set upload options
+    //var ft = new FileTransfer();
+    //var options = new FileUploadOptions();
+    //options.fileKey = "file";
+    //options.fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
+    //options.mimeType = "image/jpeg";
 
-//    ////selected photo URI is in the src attribute (we set this on getPhoto)
-//    //var imageURI = document.getElementById('largeImage').getAttribute("src");
-//    //if (!imageURI) {
-//    //    alert('Please select an image first.');
-//    //    return;
-//    //}
+    //options.params = {
+    //    performDate: $("#date").val(), //document.getElementById("firstname").value,
+    //    activity: $("#select-choice-1").val(),
+    //    isFbPost: $("#chkbFB").val(),
+    //    activityComments: $("#comment").val()
+    //};
 
-//    ////set upload options
-//    //var ft = new FileTransfer();
-//    //var options = new FileUploadOptions();
-//    //options.fileKey = "file";
-//    //options.fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
-//    //options.mimeType = "image/jpeg";
-
-//    //options.params = {
-//    //    performDate: $("#date").val(), //document.getElementById("firstname").value,
-//    //    activity: $("#select-choice-1").val(),
-//    //    isFbPost: $("#chkbFB").val(),
-//    //    activityComments: $("#comment").val()
-//    //};
-
-//    //alert("Uploading Image");
-//    //ft.upload(imageURI, encodeURI("http://some.server.com/upload.php"), win, fail, options);
-//}
+    //alert("Uploading Image");
+    //ft.upload(imageURI, encodeURI("http://some.server.com/upload.php"), win, fail, options);
+}
 
 function saveActivityLogNoFb() {
 

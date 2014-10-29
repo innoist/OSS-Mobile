@@ -12,7 +12,7 @@
   <!-- Mobile viewport optimization h5bp.com/ad -->
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
 
   <!-- Home screen icon  Mathias Bynens mathiasbynens.be/notes/touch-icons -->
   <!-- For iPhone 4 with high-resolution Retina display: -->
@@ -146,9 +146,7 @@
     <div id="main" role="main">
     </div>
     -->
-    
-    <div id="pageActivityLog" class="page">
-        <div class="content">
+   <div class="content">
             <div class="groupBox innerContent">
                 
                 <div id="banner" class="flexslider">
@@ -161,6 +159,8 @@
               
             </div>
         </div>
+    <div id="pageActivityLog">
+        
         <div id="pageServices" class="page">
             <div class="content" >
                 <div id="activitiesTab" class="" >
@@ -182,7 +182,7 @@
                                 <button data-mini="true" data-inline="true" class="ui-corner-all ui-button" data-theme="b" onclick="capturePhoto();">Capture Photo</button>
                                 <button data-mini="true" data-inline="true" class="ui-corner-all ui-button" data-theme="b" onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Gallery</button>
                             </div>    
-                            <img style="width:100%; height:40%" id="largeImage" src="" />
+                            <img style="width:100%; height:40%" id="largeImage" src="" alt="user"/>
                         </div>
                         <div class="separator"></div>
                         <div class="btnLogAct">
@@ -234,8 +234,8 @@
         document.addEventListener("deviceready", onDeviceReady, false);
         $(document).bind("mobileinit", function(){
       
-            //$.mobile.defaultPageTransition = 'none';
-            $.mobile.defaultPageTransition = 'slide';
+            $.mobile.defaultPageTransition = 'none';
+            //$.mobile.defaultPageTransition = 'slide';
             //$.mobile.defaultPageTransition = 'fade';
             //$.mobile.defaultPageTransition = 'flow';
             //$.mobile.defaultPageTransition = 'flip';
