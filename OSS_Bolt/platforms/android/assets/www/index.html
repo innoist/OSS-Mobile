@@ -109,7 +109,7 @@
             
         </div>-->
 
-      <div data-role="page"  id="container"  data-role="page" >
+      <div data-role="page"  id="container">
           <div id="containerIndex">
             <header>
               <div id="header" class="headerIndex">
@@ -232,6 +232,7 @@
                   //enable this if you want your website to run without jQuery Mobile Navigation
                   $.mobile.ajaxEnabled = false;
               });
+              
               $(document).ready(function () {
 
                   var btnLogin = document.getElementById("login");
@@ -242,6 +243,19 @@
 
                   registerEventListners();
 
+                  document.addEventListener("backbutton", function (e) {
+                      if ($.mobile.activePage.is('#container')) {
+                          /* 
+                           Event preventDefault/stopPropagation not required as adding backbutton
+                            listener itself override the default behaviour. Refer below PhoneGap link.
+                          */
+                          //e.preventDefault();
+                          navigator.app.exitApp();
+                      }
+                      else {
+                          navigator.app.backHistory()
+                      }
+                  }, false);
                   //var btnLoadAct = document.getElementById("linkContact");
                   //btnLoadAct.addEventListener("click", loadContactPage, false);
                   //var btnLoadAct = document.getElementById("linkLog");
