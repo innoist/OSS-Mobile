@@ -12,7 +12,7 @@
   <!-- Mobile viewport optimization h5bp.com/ad -->
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
   <!-- Home screen icon  Mathias Bynens mathiasbynens.be/notes/touch-icons -->
   <!-- For iPhone 4 with high-resolution Retina display: -->
@@ -146,7 +146,7 @@
     <div id="main" role="main">
     </div>
     -->
-   <div class="content">
+   <div class="content" style="margin-top: 50px">
             <div class="groupBox innerContent">
                 
                 <div id="banner" class="flexslider">
@@ -230,12 +230,13 @@
   <script src="js/photoswipe/klass.min.js"></script>
     <script src="js/photoswipe/code.photoswipe.jquery-3.0.5.min.js"></script>
     <script type="text/javascript" src="js/OSS_Script.js"></script>
+    
     <script>
         document.addEventListener("deviceready", onDeviceReady, false);
         $(document).bind("mobileinit", function(){
       
-            $.mobile.defaultPageTransition = 'none';
-            //$.mobile.defaultPageTransition = 'slide';
+            //$.mobile.defaultPageTransition = 'none';
+            $.mobile.defaultPageTransition = 'slide';
             //$.mobile.defaultPageTransition = 'fade';
             //$.mobile.defaultPageTransition = 'flow';
             //$.mobile.defaultPageTransition = 'flip';

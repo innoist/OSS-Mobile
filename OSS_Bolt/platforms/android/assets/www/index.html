@@ -28,8 +28,7 @@
         <!-- Mobile viewport optimization h5bp.com/ad -->
           <meta name="HandheldFriendly" content="True">
           <meta name="MobileOptimized" content="320">
-          <meta name="viewport" content="width=device-width, user-scalable=no">
-
+          <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
           <!-- Home screen icon  Mathias Bynens mathiasbynens.be/notes/touch-icons -->
           <!-- For iPhone 4 with high-resolution Retina display: -->
           <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/h/apple-touch-icon.png">
@@ -72,6 +71,7 @@
   
           <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
           <script src="js/libs/modernizr-2.0.6.min.js"></script>
+        
     </head>
     <body>
         <div class="app" style="display:none;">
@@ -122,10 +122,10 @@
             </div>
             -->
     
-            <div id="pageHome" class="page">
+            <div id="pageHome" class="page" style="margin-top: 50px">
                 <div class="content">
-                    <div class="groupBox innerContent groupBoxHome">
-                        <div id="bannerSlider" class="flexslider flexsliderHome">
+                    <div class="groupBox innerContent">
+                        <div id="bannerSlider" class="flexslider">
                           <ul class="slides">
                             <li>
                               <img src="img/slides/a.jpg" alt="Slide"/>
@@ -231,6 +231,9 @@
 
                   //enable this if you want your website to run without jQuery Mobile Navigation
                   $.mobile.ajaxEnabled = false;
+
+                  // Setting #container div as a jqm pageContainer
+                  $.mobile.pageContainer = $('#container');
               });
               
               $(document).ready(function () {

@@ -9,7 +9,7 @@
 }
 
 /*
-    remove borfer between header and content in a jq page
+    remove border between header and content in a jq page
 }*/
 .ui-bar-a {
     border: none !important;
@@ -62,12 +62,34 @@
     height: 44px !important;
 }
 
+.ui-page {
+    -webkit-backface-visibility: hidden;
+}
+
 #header {
+    background: #054950 !important;
+    position: fixed !important; 
+    width: 100% !important; 
+    z-index: 1 !important;
+    bottom: 0 !important;
+}
+
+#container {
+    width: 100% !important;
+    height: 100% !important;
     background: #054950 !important;
 }
 
 #footer {
     background: #054950 !important;
+    font-size: xx-small !important;
+    position: fixed !important;
+    z-index: 1 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    border: 1px solid #222 !important;
+    padding: 0 !important;
+    text-align: center !important;
 }
 
 #logo{
@@ -84,9 +106,7 @@
 }
 
 .groupBoxHome .flexsliderHome {
-    min-height: 25% !important;
-    max-height: none !important;
-    overflow: hidden !important;
+    height: 30% !important;
 }
 
 #logout{
@@ -105,3 +125,36 @@
     overflow: hidden !important;
     margin-top: 10px !important;
 }
+
+/*div#contActivity {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+        }*/
+ 
+        /*div[data-role="header"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }*/
+ 
+        /*div[data-role="content"] {
+            position: absolute !important;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 44px;
+        }*/
+ 
+        .scrollable {
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            
+        }
+ 
+            /* iOS specific fix, don't use it on Android devices */
+        .scrollable > * {
+            -webkit-transform: translateZ(0px);
+        }

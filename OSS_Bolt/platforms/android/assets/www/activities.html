@@ -13,7 +13,7 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-
+    
   <!-- Home screen icon  Mathias Bynens mathiasbynens.be/notes/touch-icons -->
   <!-- For iPhone 4 with high-resolution Retina display: -->
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/h/apple-touch-icon.png">
@@ -76,77 +76,63 @@
 
 
   <div id="contActivity" data-role="page" >
-            
-    <header>
-    
-      <div class="upperMenu">
-        <div class="pagesMenu flexslider">
-          <ul class="slides">
+      <header>
+          <div class="upperMenu">
+              <div class="pagesMenu flexslider">
+                  <ul class="slides">
               
-              <li>
-                  <button id="linkContact" class="pageLink pageLink-1-1" onclick="loadContactPage()">
-                      <div class="iconBox">
-                          <img src="img/home/icon-contact.png" alt="Logout">
-                      </div>
-                      <div class="titleBox">
-                          Contact Us
-                      </div>
-                  </button>
-                  <!--<a href="#" id="linkContact" class="pageLink pageLink-1-1" >
-                      <div class="iconBox">
-                          <img src="img/home/icon-contact.png" alt="Logout">
-                      </div>
-                      <div class="titleBox">
-                          Contact Us
-                      </div>
-                  </a>-->
-              </li>
-              <li>            
-                  <a href="#" id="linkLog" class="pageLink pageLink-1-1 ">
-                    <div class="iconBox">
-                      <img src="img/home/icon-logactivity.jpg" alt="Contact">
-                    </div>
-                    <div class="titleBox">
-                      Log Activities
-                    </div>
-                  </a>
-              </li>
-              <li>            
-                  <a href="#" id="linkActivity" class="pageLink pageLink-1-1" >
-                    <div class="iconBox">
-                      <img src="img/icon-yellow.jpg" alt="Sample Page 1">
-                    </div>
-                    <div class="titleBox">
-                      Activities
-                    </div>
-                  </a>
-              </li>
-          </ul>
-      </div>
-      </div>
-
-      <div id="header">
-        <a href="index.html#container" class="homeButton" data-transition="slide" data-direction="reverse"></a>
-        <a href="#" class="menuButton"></a>
-        
-        <h1> Activities Performed &amp; Points</h1>
-        <!--<h2> Company Name, Service Sector</h2>-->
-        
-        <!--<a href="portfolio.html" class="nextButton">&raquo;</a>-->
-        
-        <!--
-        <a href="index.html">
-          <div class="iButtonBody">
-            <div>
-              <span></span>
-            </div>
-            <p>Back</p>
+                      <li>
+                          <button id="linkContact" class="pageLink pageLink-1-1" onclick="loadContactPage()">
+                              <div class="iconBox">
+                                  <img src="img/home/icon-contact.png" alt="Contact">
+                              </div>
+                              <div class="titleBox">
+                                  Contact Us
+                              </div>
+                          </button>
+                          <!--<a href="#" id="linkContact" class="pageLink pageLink-1-1" >
+                                  <div class="iconBox">
+                                      <img src="img/home/icon-contact.png" alt="Logout">
+                                  </div>
+                                  <div class="titleBox">
+                                      Contact Us
+                                  </div>
+                              </a>-->
+                      </li>
+                      <li>            
+                          <a href="#" id="linkLog" class="pageLink pageLink-1-1 ">
+                              <div class="iconBox">
+                                  <img src="img/home/icon-logactivity.jpg" alt="Log Activities">
+                              </div>
+                              <div class="titleBox">
+                                  Log Activities
+                              </div>
+                          </a>
+                      </li>
+                      <li>            
+                          <a href="#" id="linkActivity" class="pageLink pageLink-1-1" >
+                              <div class="iconBox">
+                                  <img src="img/icon-yellow.jpg" alt="Activities">
+                              </div>
+                              <div class="titleBox">
+                                  Activities
+                              </div>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
           </div>
-        </a>
-        -->
-      </div>
-    </header>
-      <div class="content" id="imgServices" >
+
+          <div id="header">
+              <a href="index.html#container" class="homeButton" data-transition="slide" data-direction="reverse"></a>
+              <a href="#" class="menuButton"></a>
+        
+              <h1> Activities Performed &amp; Points</h1>
+              
+          </div>
+      </header>
+      
+      <div class="content" id="imgServices" style="margin-top: 50px">
           <div class="groupBox innerContent">
                 
               <div id="banner" class="flexslider">
@@ -156,7 +142,6 @@
                       </li>
                   </ul>
               </div>
-              
           </div>
       </div>
       <div class="content">
@@ -168,20 +153,12 @@
                     </div>
                 </div>
             </div>
-      <!--<button id="" class="button buttonStrong ui-corner-all ui-button anchorBtnCenter" data-theme="b" data-mini="true" onclick="showSpinner()">Show Spinner</button>
-      <button id="" class="button buttonStrong ui-corner-all ui-button anchorBtnCenter" data-theme="b" data-mini="true" onclick="hideSpinner()">Hide Spinner</button>
-      <a id="loadAct" href="#" class="button buttonStrong ui-corner-all ui-button anchorBtnCenter" data-theme="b" data-mini="true">Load Act</a>-->
         <div id="activities">
         
         <div id="pageServices" class="page">
-            
-        
-        
-            
-        
             <div class="content" >
                 <div id="activitiesTab" class="pivotTab" >
-                    <div class="groupBox">
+                    <div class="groupBox scrollable">
                         <ul id="result">
                         </ul>
                     </div>
