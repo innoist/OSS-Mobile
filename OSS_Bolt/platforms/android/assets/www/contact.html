@@ -75,7 +75,7 @@
 
 
 
-  <div id="contContact" data-role="page" >
+  <div id="contContact" data-role="page" class="bottom">
     
     
     <header>
@@ -84,35 +84,35 @@
                 <div class="pagesMenu flexslider">
             <ul class="slides">
                 <li>
-                  <a href="#" id="linkContact" class="pageLink pageLink-1-1" >
-                    <div class="iconBox">
-                      <img src="img/home/icon-contact.png" alt="Logout">
-                    </div>
-                    <div class="titleBox">
-                      Contact Us
-                    </div>
-                  </a>
-              </li>
-                <li>            
-                    <a href="#" id="linkLog" class="pageLink pageLink-1-1 " >
-                      <div class="iconBox">
-                        <img src="img/home/icon-logactivity.jpg" alt="Contact">
-                      </div>
-                      <div class="titleBox">
-                        Log Activities
-                      </div>
-                    </a>
+                    <button id="linkContact" class="pageLink pageLink-1-1" onclick="loadContactPage()">
+                        <div class="iconBox">
+                            <img src="img/home/icon-contact.png" alt="Contact">
+                        </div>
+                        <div class="titleBox">
+                            Contact Us
+                        </div>
+                    </button>
                 </li>
                 <li>            
-                    <a href="#" id="linkActivity" class="pageLink pageLink-1-1" >
-                      <div class="iconBox">
-                        <img src="img/icon-yellow.jpg" alt="Sample Page 1">
-                      </div>
-                      <div class="titleBox">
-                        Activities
-                      </div>
-                    </a>
-                </li>
+                          <button id="linkLog" class="pageLink pageLink-1-1 " onclick="loadLogPage()">
+                              <div class="iconBox">
+                                  <img src="img/home/icon-logactivity.jpg" alt="Log Activities">
+                              </div>
+                              <div class="titleBox">
+                                  Log Activities
+                              </div>
+                          </button>
+                      </li>
+                      <li>            
+                          <button id="linkActivity" class="pageLink pageLink-1-1" onclick="loadActivitiesPage()">
+                              <div class="iconBox">
+                                  <img src="img/icon-yellow.jpg" alt="Activities">
+                              </div>
+                              <div class="titleBox">
+                                  Activities
+                              </div>
+                          </button>
+                      </li>
             </ul>
         </div>
       </div>
@@ -141,7 +141,7 @@
     </div>
     -->
     
-      <div id="pageContact" class="page" style="margin-top: 50px">
+      <div id="pageContact" class="page">
           <div class="content">
               <div class="groupBox innerContent">
                 

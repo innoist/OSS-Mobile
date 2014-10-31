@@ -90,34 +90,34 @@
                 <div class="pagesMenu flexslider">
             <ul class="slides">
                 <li>
-                  <a href="#" id="linkContact" class="pageLink pageLink-1-1" >
+                  <button id="linkContact" class="pageLink pageLink-1-1" onclick="loadContactPage()">
                     <div class="iconBox">
                       <img src="img/home/icon-contact.png" alt="Logout">
                     </div>
                     <div class="titleBox">
                       Contact Us
                     </div>
-                  </a>
+                  </button>
               </li>
                 <li>            
-                    <a href="#" id="linkLog" class="pageLink pageLink-1-1 " >
+                    <button id="linkLog" class="pageLink pageLink-1-1 " onclick="loadLogPage()">
                       <div class="iconBox">
                         <img src="img/home/icon-logactivity.jpg" alt="Contact">
                       </div>
                       <div class="titleBox">
                         Log Activities
                       </div>
-                    </a>
+                    </button>
                 </li>
                 <li>            
-                    <a href="#" id="linkActivity" class="pageLink pageLink-1-1" >
+                    <button id="linkActivity" class="pageLink pageLink-1-1" onclick="loadActivitiesPage()">
                       <div class="iconBox">
                         <img src="img/icon-yellow.jpg" alt="Sample Page 1">
                       </div>
                       <div class="titleBox">
                         Activities
                       </div>
-                    </a>
+                    </button>
                 </li>
             </ul>
         </div>
@@ -146,7 +146,7 @@
     <div id="main" role="main">
     </div>
     -->
-   <div class="content" style="margin-top: 50px">
+   <div class="content">
             <div class="groupBox innerContent">
                 
                 <div id="banner" class="flexslider">
@@ -159,7 +159,7 @@
               
             </div>
         </div>
-    <div id="pageActivityLog" style="display: none;">
+    <div id="pageActivityLog" style="display: none;" class="bottom">
         
         <div id="pageServices" class="page">
             <div class="content" >
@@ -196,13 +196,6 @@
         </div>
     </div>
     <div class="clearfix"></div>
-
-    
-
-
-
-    
-    
     <footer>
         <div id="footer">
             2014 &copy; Web Sponsor. | Powered by InnoSTARK Technologies
