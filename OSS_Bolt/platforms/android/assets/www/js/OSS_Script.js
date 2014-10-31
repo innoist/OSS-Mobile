@@ -1,9 +1,9 @@
 var doProceed = false;
 var imageURI;
 var imagePath;
-//var baseURL = "http://118.139.182.155/OSS";
+var baseURL = "http://118.139.182.155/OSS";
 
-var baseURL = "http://192.168.0.110/OSS.web";
+//var baseURL = "http://192.168.0.110/OSS.web";
 
 //var baseURL = "http://localhost:43069";
 

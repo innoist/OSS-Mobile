@@ -139,3 +139,15 @@
 .upperMenu {
     margin-top: 44px !important;
 }
+
+.left {
+    margin-left: -10px !important;
+}
+
+.center {
+    text-align: center !important;
+}
+
+.flexslider {
+    min-height: 100px !important;
+}
