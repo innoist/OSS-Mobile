@@ -5,36 +5,36 @@
    //MBP.hideUrlBarOnLoad();
      
       var myScroll;
-      
-      var runFlexsliders = function(){
-          
-          //run sliders if they're not run already
-          var winWidth = $('#container').outerWidth();
-          var paddingPercent = (winWidth *2)/100;
-          var marginPercent = (winWidth*22)/100;
-          var availableWidth = winWidth - marginPercent;
-          var perItemWidth = (availableWidth / 3);// - paddingPercent;
-          $('.flexslider').each(function(){
-               if ($(this).hasClass('pagesMenu')){
-                    
+
+     var runFlexsliders = function() {
+
+         //run sliders if they're not run already
+         var winWidth = $('#container').outerWidth();
+         var paddingPercent = (winWidth * 2) / 100;
+         var marginPercent = (winWidth * 22) / 100;
+         var availableWidth = winWidth - marginPercent;
+         var perItemWidth = (availableWidth / 3); // - paddingPercent;
+         $('.flexslider').each(function() {
+             if ($(this).hasClass('pagesMenu')) {
+
                  $(this, ':not(.flexslidered)').addClass("flexslidered").flexslider({
-                      animation: "slide",
-                      controlNav: false,
-                      directionNav: true,
-                      slideshow: false,
-                      animationLoop: false,
-                      itemWidth: perItemWidth
+                     animation: "slide",
+                     controlNav: false,
+                     directionNav: true,
+                     slideshow: false,
+                     animationLoop: false,
+                     itemWidth: perItemWidth
                  });
-                 
-               } else{
-                    $(this, ':not(.flexslidered)').addClass("flexslidered").flexslider({
-                         animation: "slide",
-                         controlNav: false,
-                         directionNav: true
-                    });
-               }
-            });
-      }
+
+             } else {
+                 $(this, ':not(.flexslidered)').addClass("flexslidered").flexslider({
+                     animation: "slide",
+                     controlNav: false,
+                     directionNav: true
+                 });
+             }
+         });
+     };
       
 
    
@@ -43,10 +43,10 @@
                this.ENTER_KEY = 13;
                this.$duration = 700;
                
-               //hide splash
-               setTimeout(function(){
-                    $('#splash').fadeOut('750');
-               }, 750);
+                //hide splash
+               //setTimeout(function () {
+               //     $('#splash').fadeOut('1000');
+               //}, 2000);
              
                
                runFlexsliders();

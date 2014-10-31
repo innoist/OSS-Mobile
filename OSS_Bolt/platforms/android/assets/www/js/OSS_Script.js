@@ -1,9 +1,9 @@
 var doProceed = false;
 var imageURI;
 var imagePath;
-var baseURL = "http://118.139.182.155/OSS";
+//var baseURL = "http://118.139.182.155/OSS";
 
-//var baseURL = "http://192.168.0.110/OSS.web";
+var baseURL = "http://192.168.0.110/OSS.web";
 
 //var baseURL = "http://localhost:43069";
 
@@ -54,11 +54,7 @@ function loadContactPage() {
 function loadLogPage() {
     $.mobile.changePage("activityLog.html", { transition: "slide" });
     setTimeout(function () {
-        //$.mobile.showPageLoadingMsg();
         PopulateActivities();
-        //setTimeout(function () {
-        //    $.mobile.hidePageLoadingMsg();
-        //}, 500);
     }, 500);
 
 }
@@ -78,6 +74,7 @@ $(document).on("pagebeforeshow", "#loginPage", function () {
             dataType: "json",
             type: 'Get',
             success: function (data) {
+                $('#splash').fadeOut('1000');
                 if (data.IsAuthenticated) {
                     $("#loginPage").css("display", "none");
                     window.location.hash = 'container';
@@ -89,6 +86,7 @@ $(document).on("pagebeforeshow", "#loginPage", function () {
                 }
             },
             error: function () {
+                $('#splash').fadeOut('1000');
                 $("#loginPage").css("display", "block");
                 alert("Error in network");
             }
@@ -96,14 +94,26 @@ $(document).on("pagebeforeshow", "#loginPage", function () {
 
     }
     if (localStorage.getItem("Email") == "" || localStorage.getItem("Email") == null) {
+        $('#splash').fadeOut('1000');
         $("#loginPage").css("display", "block");
         window.location.hash = 'loginPage';
         $.mobile.initializePage();
-        
-        
-
     }
 });
+
+//$('#splash').live('pagebeforeshow', function (event) {
+//    $.mobile.showPageLoadingMsg();
+//        setTimeout(function () {
+//            $.mobile.hidePageLoadingMsg();
+//        }, 1000);
+//});
+
+//$(document).on("pagebeforeshow", "#splash", function (event) {
+//    $.mobile.showPageLoadingMsg();
+//    setTimeout(function () {
+//        $.mobile.hidePageLoadingMsg();
+//    }, 1000);
+//});
 
 function showSpinner() {
     $.mobile.showPageLoadingMsg();
@@ -140,7 +150,8 @@ function authenticateUser() {
             url: baseURL + "/Api/Access?email=" + $('#email').val() + "&password=" + $('#password').val(),
             dataType: "json",
             type: 'Get',
-            success: function(data) {
+            success: function (data) {
+                $('#splash').fadeOut('1000');
                 if (data.IsAuthenticated) {
                     localStorage.setItem("Email", data.Email);
                     localStorage.setItem("Password", $('#password').val());
@@ -156,6 +167,7 @@ function authenticateUser() {
             },
             error: function () {
                 $.mobile.hidePageLoadingMsg();
+                $('#splash').fadeOut('1000');
                 $("#loginPage").css("display", "block");
                 alert("Error in network");
             }
@@ -259,7 +271,10 @@ function PopulateActivities() {
             });
             $('#select-choice-1').append(seloption);
             $("#select-choice-1").prop("selectedIndex", 0);
-            $.mobile.hidePageLoadingMsg();
+            setTimeout(function () {
+                $("#pageActivityLog").show();
+                $.mobile.hidePageLoadingMsg();
+            }, 500);
         }
     });
 }

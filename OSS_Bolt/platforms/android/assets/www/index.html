@@ -103,11 +103,10 @@
             </div>
         </div>
 
-        <!--<div data-role="page" id="splash" class="splash"> 
+        <div data-role="page" id="splash" class="splash"> 
             <img id="splashBg" src="img/splash.jpg" alt="Splash Image">
-            <img id="splashTitle" src="img/jquerymobile/ajax-loader-c.gif" alt="Splash Image" style="width: 40px; height: 40px; margin: 0 auto;">
-            
-        </div>-->
+            <img id="splashTitle" src="img/jquerymobile/ajax-loader.gif" alt="Splash Image" style="width: 40px; height: 40px; margin: 0px 0px 0px -20px;">
+        </div>
 
       <div data-role="page"  id="container">
           <div id="containerIndex">
@@ -235,7 +234,6 @@
                   // Setting #container div as a jqm pageContainer
                   $.mobile.pageContainer = $('#container');
               });
-              
               $(document).ready(function () {
 
                   var btnLogin = document.getElementById("login");
@@ -259,6 +257,8 @@
                           navigator.app.backHistory()
                       }
                   }, false);
+                  
+
                   //var btnLoadAct = document.getElementById("linkContact");
                   //btnLoadAct.addEventListener("click", loadContactPage, false);
                   //var btnLoadAct = document.getElementById("linkLog");
