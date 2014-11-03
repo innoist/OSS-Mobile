@@ -1,7 +1,9 @@
 var doProceed = false;
 var imageURI;
 var imagePath;
-var baseURL = "http://118.139.182.155/OSS";
+
+var photoPostURI;
+var baseURL = "http://192.168.1.6/OSS.Web";
 
 //var baseURL = "http://192.168.0.110/OSS.web";
 
@@ -309,7 +311,9 @@ function onPhotoDataSuccess(imageData) {
     // Show the captured photo
     // The inline CSS rules are used to resize the image
     
-    largeImage.src = "data:image/jpeg;base64," + imageData;
+    //largeImage.src = "data:image/jpeg;base64," + imageData;
+    largeImage.src = imageData;
+    photoPostURI = imageData;
     //$('#image').val("data:image/jpeg;base64," + imageData);
 }
 
@@ -328,6 +332,7 @@ function onPhotoURISuccess(imageURI) {
     // The inline CSS rules are used to resize the image
     //
     largeImage.src = imageURI;
+    photoPostURI = imageURI;
 }
 
 // A button will call this function
@@ -335,8 +340,8 @@ function onPhotoURISuccess(imageURI) {
 function capturePhoto() {
     // Take picture using device camera and retrieve image as base64-encoded string
     navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
-        quality: 50,
-        destinationType: destinationType.DATA_URL,
+        quality: 20,
+        destinationType: destinationType.FILE_URI,
     });
     
 }
@@ -347,7 +352,7 @@ function capturePhotoEdit() {
     // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
     navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
         quality: 20, allowEdit: true,
-        destinationType: destinationType.DATA_URL
+        destinationType: destinationType.FILE_URI
     });
 }
 
@@ -418,30 +423,63 @@ function validateActivityLogNoFb() {
     }
     return true;
 }
+function win(r) {
+    console.log("Code = " + r.responseCode);
+    console.log("Response = " + r.response);
+    console.log("Sent = " + r.bytesSent);
+}
+function fail(error) {
+    alert("An error has occurred: Code = " + error.code);
+    alert("upload error source " + error.source);
+    alert("upload error target " + error.target);
+}
 
 function saveActivityLogFb() {
-    var isFbPost = $("#chkbFB").is(':checked');
-    var actLogData = {
-        "ActivityId": $("#select-choice-1").val(),
-        "UserId": window.localStorage.getItem("UserId"),
-        "Date": $("#date").val(),
-        "Comment": $('#comment').val(),
-        "IsFbPost": isFbPost,
-        "ImagePath": "/img/",
-        "ImageName": "ABC"
-        //"UploadImage": 
-};
+
+    ////set upload options
+    var ft = new FileTransfer();
+
+    var options = new FileUploadOptions();
+    options.fileKey = "file";
+    options.fileName = "D:\Innostark\GIT\OSS (GitHub for Windows)\OSS.Web\Images\SponsorActivity\asad@test.com\FileNameSir";
+    options.mimeType = "image/jpeg";
+    var params = {};
+    params.value1 = "test";
+    params.value2 = "param";
+    options.params = params;
+    //options.params = {
+    //    performDate: $("#date").val(), //document.getElementById("firstname").value,
+    //    activity: $("#select-choice-1").val(),
+    //    isFbPost: $("#chkbFB").val(),
+    //    activityComments: $("#comment").val()
+    //};
+
+    alert("Uploading Image");
+    ft.upload(photoPostURI, encodeURI(baseURL + "/Api/UserActivity"), win, fail, options);
+
+
+    //    var isFbPost = $("#chkbFB").is(':checked');
+//    var actLogData = {
+//        "ActivityId": $("#select-choice-1").val(),
+//        "UserId": window.localStorage.getItem("UserId"),
+//        "Date": $("#date").val(),
+//        "Comment": $('#comment').val(),
+//        "IsFbPost": isFbPost,
+//        "ImagePath": "/img/",
+//        "ImageName": "ABC"
+//        //"UploadImage": 
+//};
     
-    $.ajax({
-        type: "POST",
-        url: baseURL + '/Api/UserActivity',
-        async: true,
-        cache: false,
-        data: "ABC",
-        contentType: 'application/x-www-form-urlencoded; charset=UTF-8', //When sending data to the server
-        dataType: 'json',  //The type of data that you're expecting back from the server.
-        success: saveSuccess
-    });
+//    $.ajax({
+//        type: "POST",
+//        url: baseURL + '/Api/UserActivity',
+//        async: true,
+//        cache: false,
+//        data: "ABC",
+//        contentType: 'application/x-www-form-urlencoded; charset=UTF-8', //When sending data to the server
+//        dataType: 'json',  //The type of data that you're expecting back from the server.
+//        success: saveSuccess
+//    });
 
     ////selected photo URI is in the src attribute (we set this on getPhoto)
     //var imageURI = document.getElementById('largeImage').getAttribute("src");
