@@ -2,6 +2,10 @@
     border-bottom: none !important;
 }
 
+.ui-page {
+    -webkit-backface-visibility: hidden !important;
+}
+
 .btnLogin {
     display: block !important;
     margin: 0 auto !important;

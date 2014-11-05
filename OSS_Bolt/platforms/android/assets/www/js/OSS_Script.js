@@ -3,9 +3,10 @@ var imageURI;
 var imagePath;
 
 var photoPostURI;
-var baseURL = "http://192.168.1.6/OSS.Web";
+var baseURL = "http://192.168.10.101/OSS.web";
 
-//var baseURL = "http://192.168.0.110/OSS.web";
+var mainTransition = "slide";
+//var baseURL = "http://192.168.10.101/OSS.web";
 
 //var baseURL = "http://localhost:43069";
 
@@ -28,7 +29,8 @@ $(document).on("pageinit", "#loginPage", function () {
 // changePage functionalities with some AJAX calls
 
 function loadActivitiesPage() {
-    $.mobile.changePage("activities.html", { transition: "slide" });
+    alert('activities page');
+    $.mobile.changePage("activities.html", { transition: mainTransition });
     setTimeout(function () {
         registerEventListners();
         LoadUserActivitiesDetail();
@@ -37,16 +39,17 @@ function loadActivitiesPage() {
 }
 
 function registerEventListners() {
-    var btnLoadAct = document.getElementById("linkContact");
-    btnLoadAct.addEventListener("click", loadContactPage, false);
-    var btnLoadAct = document.getElementById("linkLog");
-    btnLoadAct.addEventListener("click", loadLogPage, false);
-    var btnLoadAct = document.getElementById("linkActivity");
-    btnLoadAct.addEventListener("click", loadActivitiesPage, false);
+    var btnLoadAct1 = document.getElementById("linkContact");
+    btnLoadAct1.addEventListener("click", loadContactPage, false);
+    var btnLoadAct2 = document.getElementById("linkLog");
+    btnLoadAct2.addEventListener("click", loadLogPage, false);
+    var btnLoadAct3 = document.getElementById("linkActivity");
+    btnLoadAct3.addEventListener("click", loadActivitiesPage, false);
 }
 
 function loadContactPage() {
-    $.mobile.changePage("contact.html", { transition: "slide" });
+    alert('contact page');
+    $.mobile.changePage("contact.html", { transition: mainTransition });
     setTimeout(function () {
         registerEventListners();
     }, 500);
@@ -54,7 +57,8 @@ function loadContactPage() {
 }
 
 function loadLogPage() {
-    $.mobile.changePage("activityLog.html", { transition: "slide" });
+    
+    $.mobile.changePage("activityLog.html", { transition: 'pop' });
     setTimeout(function () {
         PopulateActivities();
     }, 500);
@@ -62,7 +66,8 @@ function loadLogPage() {
 }
 
 function loadHomePage() {
-    $.mobile.changePage("index.html#container", { transition: "slide", reverse: true });
+    alert('Home Page');
+    $.mobile.changePage("index.html#container", { transition: mainTransition, reverse: true });
 } 
 
 // check if user is already logged in
@@ -161,7 +166,7 @@ function authenticateUser() {
                     localStorage.setItem("UserId", data.UserId);
                     $.mobile.hidePageLoadingMsg();
                     $("#loginPage").css("display", "none");
-                    $.mobile.changePage("#container", { transition: "slide" });
+                    $.mobile.changePage("#container", { transition: mainTransition });
                 } else {
                     $.mobile.hidePageLoadingMsg();
                     alert("Invalid Credentials");
@@ -436,6 +441,14 @@ function fail(error) {
 
 function saveActivityLogFb() {
 
+    var ref = window.open("http://192.168.1.6/OSS.Web/Test.aspx/", "_blank");
+    ref.addEventListener('loadstop', function (event) {
+        alert(event.url);
+        
+            ref.close();
+        
+    });
+    return true;
     ////set upload options
     var ft = new FileTransfer();
 
@@ -454,7 +467,7 @@ function saveActivityLogFb() {
     //    activityComments: $("#comment").val()
     //};
 
-    alert("Uploading Image");
+    
     ft.upload(photoPostURI, encodeURI(baseURL + "/Api/UserActivity"), win, fail, options);
 
 

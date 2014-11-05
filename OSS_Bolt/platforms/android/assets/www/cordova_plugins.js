@@ -187,6 +187,13 @@ module.exports = [
         "clobbers": [
             "window.FileTransfer"
         ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js",
+        "id": "org.apache.cordova.inappbrowser.inappbrowser",
+        "clobbers": [
+            "window.open"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -194,7 +201,8 @@ module.exports.metadata =
 {
     "org.apache.cordova.camera": "0.3.4-dev",
     "org.apache.cordova.file": "1.3.1",
-    "org.apache.cordova.file-transfer": "0.4.7"
+    "org.apache.cordova.file-transfer": "0.4.7",
+    "org.apache.cordova.inappbrowser": "0.5.3"
 }
 // BOTTOM OF METADATA
 });
