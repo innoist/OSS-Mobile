@@ -3,7 +3,7 @@ var imageURI;
 var imagePath;
 
 var photoPostURI;
-var baseURL = "http://192.168.1.43/OSS.web";
+var baseURL = "http://192.168.1.44/OSS.web";
 
 var mainTransition = "slide";
 //var baseURL = "http://192.168.10.101/OSS.web";
