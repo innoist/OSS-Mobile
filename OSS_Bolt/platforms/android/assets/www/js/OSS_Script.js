@@ -3,8 +3,8 @@ var imageURI;
 var imagePath;
 
 var photoPostURI;
-var baseURL = "http://192.168.1.44/OSS.web";
-
+var baseURL = "http://182.189.18.173/OSS.web";
+//var baseURL = "http://118.139.182.155/OSS";
 var mainTransition = "slide";
 //var baseURL = "http://192.168.10.101/OSS.web";
 
@@ -438,89 +438,35 @@ function fail(error) {
     alert("upload error source " + error.source);
     alert("upload error target " + error.target);
 }
+//NADIR changes start
 
 function saveActivityLogFb() {
 
-    var ref = window.open("http://192.168.1.6/OSS.Web/Test.aspx/", "_blank");
-    ref.addEventListener('loadstop', function (event) {
-        alert(event.url);
-        
-            ref.close();
-        
-    });
-    return true;
     ////set upload options
+    
+
     var ft = new FileTransfer();
 
     var options = new FileUploadOptions();
     options.fileKey = "file";
-    options.fileName = "D:\Innostark\GIT\OSS (GitHub for Windows)\OSS.Web\Images\SponsorActivity\asad@test.com\FileNameSir";
+    options.fileName = photoPostURI.substr(photoPostURI.lastIndexOf('/') + 1);
     options.mimeType = "image/jpeg";
     var params = {};
-    params.value1 = "test";
-    params.value2 = "param";
+    params.UserEmail = window.localStorage.getItem("Email");
+    params.UserId = window.localStorage.getItem("UserId");
+    params.Date = $("#date").val();
+    params.ActivityId = $("#select-choice-1").val();
+    params.IsFBPost = "True";
+    params.Comment = $("#comment").val();
     options.params = params;
-    //options.params = {
-    //    performDate: $("#date").val(), //document.getElementById("firstname").value,
-    //    activity: $("#select-choice-1").val(),
-    //    isFbPost: $("#chkbFB").val(),
-    //    activityComments: $("#comment").val()
-    //};
-
-    
     ft.upload(photoPostURI, encodeURI(baseURL + "/Api/UserActivity"), win, fail, options);
 
 
-    //    var isFbPost = $("#chkbFB").is(':checked');
-//    var actLogData = {
-//        "ActivityId": $("#select-choice-1").val(),
-//        "UserId": window.localStorage.getItem("UserId"),
-//        "Date": $("#date").val(),
-//        "Comment": $('#comment').val(),
-//        "IsFbPost": isFbPost,
-//        "ImagePath": "/img/",
-//        "ImageName": "ABC"
-//        //"UploadImage": 
-//};
-    
-//    $.ajax({
-//        type: "POST",
-//        url: baseURL + '/Api/UserActivity',
-//        async: true,
-//        cache: false,
-//        data: "ABC",
-//        contentType: 'application/x-www-form-urlencoded; charset=UTF-8', //When sending data to the server
-//        dataType: 'json',  //The type of data that you're expecting back from the server.
-//        success: saveSuccess
-//    });
-
-    ////selected photo URI is in the src attribute (we set this on getPhoto)
-    //var imageURI = document.getElementById('largeImage').getAttribute("src");
-    //if (!imageURI) {
-    //    alert('Please select an image first.');
-    //    return;
-    //}
-
-    ////set upload options
-    //var ft = new FileTransfer();
-    //var options = new FileUploadOptions();
-    //options.fileKey = "file";
-    //options.fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
-    //options.mimeType = "image/jpeg";
-
-    //options.params = {
-    //    performDate: $("#date").val(), //document.getElementById("firstname").value,
-    //    activity: $("#select-choice-1").val(),
-    //    isFbPost: $("#chkbFB").val(),
-    //    activityComments: $("#comment").val()
-    //};
-
-    //alert("Uploading Image");
-    //ft.upload(imageURI, encodeURI("http://some.server.com/upload.php"), win, fail, options);
 }
 
 function saveActivityLogNoFb() {
-
+    win('123');
+    return;
     var isFbPost = $("#chkbFB").is(':checked');
     var actLogData = {
         "ActivityId": $("#select-choice-1").val(),
@@ -541,6 +487,7 @@ function saveActivityLogNoFb() {
          
     });
 }
+//NADIR code end
 
 function saveSuccess(data) {
     if (data) {
@@ -550,8 +497,20 @@ function saveSuccess(data) {
     }
 }
 
+var AppId = "845529275457582";
+var HostUrl = "http://182.189.18.173/OSS.Web";
+var RedirectUrl = "/Activity/UserActivityFb?activityId=";
+var activityId = $("#select-choice-1").val();
 function win(r) {
-    alert("Response =" + r.response);
+    var FBLink = "https://graph.facebook.com/oauth/authorize?client_id=" + AppId + "&redirect_uri=" + HostUrl + RedirectUrl + "2067" + "&scope=publish_actions";
+    alert(FBLink);
+    //var ref = window.open(FBLink, "_blank");
+    //ref.addEventListener('loadstop', function (event) {
+    //    if (event.url.match("NewPage")) {
+    //        ref.close();
+    //    }
+    //});
+    return true;
 }
 
 function fail(error) {
