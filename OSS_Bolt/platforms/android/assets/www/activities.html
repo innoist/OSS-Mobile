@@ -12,7 +12,7 @@
   <!-- Mobile viewport optimization h5bp.com/ad -->
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <!--<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">-->
     
   <!-- Home screen icon  Mathias Bynens mathiasbynens.be/notes/touch-icons -->
   <!-- For iPhone 4 with high-resolution Retina display: -->
@@ -68,8 +68,8 @@
 </head>
 <body>
     <!--<div id="splash" class="splash"> 
-      <img id="splashBg" src="img/splash.jpg" alt="Splash Image">
-      <img id="splashTitle" src="img/jquerymobile/ajax-loader-c.gif" alt="Splash Image" style="width: 40px; height: 40px; margin: 0 auto;">
+      <img id="splashBg" src="img/splash-a.jpg" alt="Splash Image">
+      <img id="splashTitle" src="img/splashTitle.jpg" alt="Splash Image" style="width: 40px; height: 40px; margin: 0 auto;">
     </div>-->
 
 
@@ -124,52 +124,51 @@
           </div>
 
           <div id="header">
-              <a href="index.html#container" class="homeButton" data-transition="slide" data-direction="reverse"></a>
-              <a href="#" class="menuButton"></a>
-        
-              <h1> Activities Performed &amp; Points</h1>
+              <a href="index.html#container" data-transition="slide" data-direction="reverse"><img src="img/home/home-icon-a.png" align="left" class="homeIcon"/></a>
+             <a href="#" class="menuButton"></a>
+             <h1 class="titleCenter"> Activities &amp; Points</h1>
               
           </div>
       </header>
       
+      
       <div class="content" id="imgServices">
-          <div class="groupBox innerContent">
+              <div class="groupBox innerContent">
                 
-              <div id="banner" class="flexslider">
-                  <ul class="slides">
-                      <li>
-                          <img src="img/services.jpg" />
-                      </li>
-                  </ul>
+                  <div id="banner" class="flexslider">
+                      <ul class="slides">
+                          <li>
+                              <img src="img/services.jpg" />
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      <div id="activities" class="bottom">
+          
+          <div class="content">
+              <div id="pivotTabs" class="pivotTabs">
+                  <div id="scroller">
+                      <ul id="thelist">
+                          <li> <a href="#" data-value="#activitiesTab"> Activities </a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>  
+          <div id="" class="page">
+              <div class="content" >
+                  <div id="activitiesTab" class="" >
+                      <div class="groupBox">
+                          <ul id="result" class="abc">
+                          </ul>
+                      </div>
+                      <!-- end group box -->
+                  </div>
               </div>
           </div>
       </div>
-      <div class="content">
-                <div id="pivotTabs" class="pivotTabs">
-                    <div id="scroller">
-                        <ul id="thelist">
-                            <li> <a href="#" data-value="#activitiesTab"> Activities</a> </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        <div id="activities">
-        
-        <div id="pageServices" class="page">
-            <div class="content" >
-                <div id="activitiesTab" class="pivotTab" >
-                    <div class="groupBox">
-                        <ul id="result">
-                        </ul>
-                    </div>
-                    <!-- end group box -->
-                </div>
-            </div>
-        
-        </div>
-    </div>
       <div class="clearfix"></div>
-      <div class="separator"></div>
+      
     <footer>
         <div id="footer">
             2014 &copy; Web Sponsor. | Powered by InnoSTARK Technologies

@@ -1,12 +1,13 @@
 var doProceed = false;
 var imageURI;
 var imagePath;
-
+var isAuthenticated = false;
 var photoPostURI;
-var baseURL = "http://182.189.18.173/OSS.web";
-//var baseURL = "http://118.139.182.155/OSS";
 var mainTransition = "slide";
-//var baseURL = "http://192.168.10.101/OSS.web";
+
+//var baseURL = "http://192.168.0.110/OSS.web";
+
+var baseURL = "http://118.139.182.155/OSS";
 
 //var baseURL = "http://localhost:43069";
 
@@ -19,20 +20,25 @@ var mainTransition = "slide";
     ---------------
     ---------------*/
 
-$(document).on("pageinit", "#loginPage", function () {
-    setTimeout(function () {
-        $.mobile.hidePageLoadingMsg();
-    }, 2000);
-    
+$(document).on("pageinit", "#splash", function () {
+    $.mobile.showPageLoadingMsg();
 });
+
+// Get AJAX data for device back button pressed
+
+function getAJAXData() {
+    alert("AJAX");
+    LoadUserActivitiesDetail();
+    PopulateActivities();
+}
 
 // changePage functionalities with some AJAX calls
 
 function loadActivitiesPage() {
-    alert('activities page');
+    $.mobile.showPageLoadingMsg();
     $.mobile.changePage("activities.html", { transition: mainTransition });
+    $("#activities").hide();
     setTimeout(function () {
-        registerEventListners();
         LoadUserActivitiesDetail();
     }, 1000);
     
@@ -48,25 +54,26 @@ function registerEventListners() {
 }
 
 function loadContactPage() {
-    alert('contact page');
+    $.mobile.showPageLoadingMsg();
     $.mobile.changePage("contact.html", { transition: mainTransition });
     setTimeout(function () {
-        registerEventListners();
-    }, 500);
+        $("#contactPageTabs").css("display", "block");
+    }, 1000);
 
 }
 
 function loadLogPage() {
-    
-    $.mobile.changePage("activityLog.html", { transition: 'pop' });
+    $.mobile.showPageLoadingMsg();
+    $.mobile.changePage("activityLog.html", { transition: mainTransition });
+    $("#date").val("");
+    $("#pageActivityLog").hide();
     setTimeout(function () {
         PopulateActivities();
-    }, 500);
+    }, 1000);
 
 }
 
 function loadHomePage() {
-    alert('Home Page');
     $.mobile.changePage("index.html#container", { transition: mainTransition, reverse: true });
 } 
 
@@ -81,46 +88,36 @@ $(document).on("pagebeforeshow", "#loginPage", function () {
             dataType: "json",
             type: 'Get',
             success: function (data) {
-                $('#splash').fadeOut('1000');
                 if (data.IsAuthenticated) {
-                    $("#loginPage").css("display", "none");
-                    window.location.hash = 'container';
-                    $.mobile.initializePage();
+                    setTimeout(function () {
+                        isAuthenticated = true;
+                        $("#loginPage").css("display", "none");
+                        $('#splash').fadeOut('500');
+                        $.mobile.changePage("#container", { transition: mainTransition });
+                    }, 1000);
                 } else {
+                    $('#splash').fadeOut('500');
                     $("#loginPage").css("display", "block");
-                    window.location.hash = 'loginPage';
-                    $.mobile.initializePage();
                 }
             },
             error: function () {
-                $('#splash').fadeOut('1000');
-                $("#loginPage").css("display", "block");
-                alert("Error in network");
+                setTimeout(function () {
+                    $$('#splash').fadeOut('500');
+                    isAuthenticated = false;
+                    $("#loginPage").css("display", "block");
+                    alert("Error in network");
+                }, 1000);
             }
         });
-
     }
     if (localStorage.getItem("Email") == "" || localStorage.getItem("Email") == null) {
-        $('#splash').fadeOut('1000');
-        $("#loginPage").css("display", "block");
-        window.location.hash = 'loginPage';
-        $.mobile.initializePage();
+        isAuthenticated = false;
+        setTimeout(function () {
+            $('#splash').fadeOut('500');
+            $("#loginPage").css("display", "block");
+        }, 1000);
     }
 });
-
-//$('#splash').live('pagebeforeshow', function (event) {
-//    $.mobile.showPageLoadingMsg();
-//        setTimeout(function () {
-//            $.mobile.hidePageLoadingMsg();
-//        }, 1000);
-//});
-
-//$(document).on("pagebeforeshow", "#splash", function (event) {
-//    $.mobile.showPageLoadingMsg();
-//    setTimeout(function () {
-//        $.mobile.hidePageLoadingMsg();
-//    }, 1000);
-//});
 
 function showSpinner() {
     $.mobile.showPageLoadingMsg();
@@ -158,8 +155,9 @@ function authenticateUser() {
             dataType: "json",
             type: 'Get',
             success: function (data) {
-                $('#splash').fadeOut('1000');
+                $('#splash').fadeOut('500');
                 if (data.IsAuthenticated) {
+                    isAuthenticated = true;
                     localStorage.setItem("Email", data.Email);
                     localStorage.setItem("Password", $('#password').val());
                     localStorage.setItem("OrgId", data.OrgId);
@@ -168,13 +166,15 @@ function authenticateUser() {
                     $("#loginPage").css("display", "none");
                     $.mobile.changePage("#container", { transition: mainTransition });
                 } else {
+                    isAuthenticated = false;
                     $.mobile.hidePageLoadingMsg();
                     alert("Invalid Credentials");
                 }
             },
             error: function () {
+                isAuthenticated = false;
                 $.mobile.hidePageLoadingMsg();
-                $('#splash').fadeOut('1000');
+                $('#splash').fadeOut('500');
                 $("#loginPage").css("display", "block");
                 alert("Error in network");
             }
@@ -209,7 +209,6 @@ function logoutUser() {
 // load complete user activites with Activity Date, Name and Points by AJAX call
 
 function LoadUserActivitiesDetail() {
-    $("#activities").hide();
     $.mobile.showPageLoadingMsg();
     setTimeout(function () {
         $.ajax({
@@ -219,14 +218,15 @@ function LoadUserActivitiesDetail() {
             async: false,
             success: function (data) {
                 if (data.recordsTotal > 0) {
-
                     userActivitiesList = data;
                     DisplayUserActivities();
-
+                    
                 }
+                $.mobile.hidePageLoadingMsg();
+                $("#activities").show();
             }
         });
-    }, 1000);
+    }, 100);
 }
 
 // append user activities to list
@@ -235,15 +235,28 @@ function DisplayUserActivities() {
     //we have searchResult and now convert it in list item form.
     $("#result").empty();
     $.each(userActivitiesList.data, function (itemIndex, result) {
-        $('#result').append(
-            '<li>' + '<p class="ui-li-aside ui-li-desc">' + result.Date + '</p>' +
+        //if (result.FbPost.indexOf("Post") > -1) {
+        //    fbButton = "<button onclick=(win(" + result.ActivityId +"))><img src='img/facebook.png'/></button>";
+            $('#result').append(
+            '<li>' + '<p class="ui-li-aside ui-li-desc">' + result.Date + '</p>' + result.FbPost +
                 '<p class="title">' +
                     '<h2>' + result.Name + '</h2></p>' +
                     '<p class="key"><strong>Points: ' + result.FbPointsFormatted + '</strong></p>' +
                 '</li> ');
+            $("ul.abc a").addClass("blue li-left");
+        //} else {
+        //    $('#result').append(
+        //    '<li>' + '<p class="ui-li-aside ui-li-desc">' + result.Date + '</p>' + result.FbPost +
+        //        '<p class="title">' +
+        //            '<h2>' + result.Name + '</h2></p>' +
+        //            '<p class="key"><strong>Points: ' + result.FbPointsFormatted + '</strong></p>' +
+        //        '</li> ');
+        //    $("ul.abc a").addClass("blue li-left");
+        //}
+        
     });
     $.mobile.hidePageLoadingMsg();
-    $("#activities").show();
+    
 }
 
 /* -----------------
@@ -278,10 +291,8 @@ function PopulateActivities() {
             });
             $('#select-choice-1').append(seloption);
             $("#select-choice-1").prop("selectedIndex", 0);
-            setTimeout(function () {
-                $("#pageActivityLog").show();
-                $.mobile.hidePageLoadingMsg();
-            }, 500);
+            $("#pageActivityLog").show();
+            $.mobile.hidePageLoadingMsg();
         }
     });
 }
@@ -318,6 +329,7 @@ function onPhotoDataSuccess(imageData) {
     
     //largeImage.src = "data:image/jpeg;base64," + imageData;
     largeImage.src = imageData;
+    $("#largeImage").show();
     photoPostURI = imageData;
     //$('#image').val("data:image/jpeg;base64," + imageData);
 }
@@ -337,6 +349,7 @@ function onPhotoURISuccess(imageURI) {
     // The inline CSS rules are used to resize the image
     //
     largeImage.src = imageURI;
+    $("#largeImage").show();
     photoPostURI = imageURI;
 }
 
@@ -347,6 +360,7 @@ function capturePhoto() {
     navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
         quality: 20,
         destinationType: destinationType.FILE_URI,
+        correctOrientation: true
     });
     
 }
@@ -357,7 +371,8 @@ function capturePhotoEdit() {
     // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
     navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
         quality: 20, allowEdit: true,
-        destinationType: destinationType.FILE_URI
+        destinationType: destinationType.FILE_URI,
+        correctOrientation: true
     });
 }
 
@@ -368,7 +383,8 @@ function getPhoto(source) {
     navigator.camera.getPicture(onPhotoURISuccess, onFail, {
         quality: 50,
         destinationType: destinationType.FILE_URI,
-        sourceType: source
+        sourceType: source,
+        correctOrientation: true
     });
 }
 
@@ -428,23 +444,22 @@ function validateActivityLogNoFb() {
     }
     return true;
 }
-function win(r) {
-    console.log("Code = " + r.responseCode);
-    console.log("Response = " + r.response);
-    console.log("Sent = " + r.bytesSent);
-}
-function fail(error) {
-    alert("An error has occurred: Code = " + error.code);
-    alert("upload error source " + error.source);
-    alert("upload error target " + error.target);
-}
-//NADIR changes start
 
+//NADIR changes start
+//function win(r) {
+//    console.log("Code = " + r.responseCode);
+//    console.log("Response = " + r.response);
+//    console.log("Sent = " + r.bytesSent);
+//}
+$(document).on("pageshow", "#container", function () {
+    $.mobile.hidePageLoadingMsg();
+});
 function saveActivityLogFb() {
 
     ////set upload options
-    
 
+    //win('123');
+    //return;
     var ft = new FileTransfer();
 
     var options = new FileUploadOptions();
@@ -459,14 +474,13 @@ function saveActivityLogFb() {
     params.IsFBPost = "True";
     params.Comment = $("#comment").val();
     options.params = params;
+    $.mobile.showPageLoadingMsg();
     ft.upload(photoPostURI, encodeURI(baseURL + "/Api/UserActivity"), win, fail, options);
 
 
 }
 
 function saveActivityLogNoFb() {
-    win('123');
-    return;
     var isFbPost = $("#chkbFB").is(':checked');
     var actLogData = {
         "ActivityId": $("#select-choice-1").val(),
@@ -474,7 +488,7 @@ function saveActivityLogNoFb() {
         "Date": $("#date").val(),
         "IsFbPost": isFbPost
     };
-
+    $.mobile.showPageLoadingMsg();
     $.ajax({
         type: "POST",
         url: baseURL + '/Api/UserActivity',
@@ -484,35 +498,40 @@ function saveActivityLogNoFb() {
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8', //When sending data to the server
         dataType: 'json',  //The type of data that you're expecting back from the server.
         success: saveSuccess
-         
-    });
-}
-//NADIR code end
 
-function saveSuccess(data) {
-    if (data) {
-        alert("Success");
-    } else {
-        alert("Fail");
-    }
+    });
 }
 
 var AppId = "845529275457582";
-var HostUrl = "http://182.189.18.173/OSS.Web";
-var RedirectUrl = "/Activity/UserActivityFb?activityId=";
-var activityId = $("#select-choice-1").val();
-function win(r) {
-    var FBLink = "https://graph.facebook.com/oauth/authorize?client_id=" + AppId + "&redirect_uri=" + HostUrl + RedirectUrl + "2067" + "&scope=publish_actions";
-    alert(FBLink);
-    //var ref = window.open(FBLink, "_blank");
-    //ref.addEventListener('loadstop', function (event) {
-    //    if (event.url.match("NewPage")) {
-    //        ref.close();
-    //    }
-    //});
-    return true;
+var HostUrl = baseURL;
+var RedirectUrl = "/Activity/UserActivityFbMobile?activityId=";
+
+function saveSuccess(data) {
+
+    if (data) {
+        $.mobile.changePage("index.html#container", { transition: "slide" });
+    } else {
+        alert("There is some problem.");
+    }
 }
 
+function win(r) {
+    var useremail = localStorage.getItem("Email");
+    useremail = useremail.replace('@', '00000');
+    userActivityId = r.response;
+    var FBLink = "https://graph.facebook.com/oauth/authorize?client_id=" + AppId + "&redirect_uri=" + HostUrl + RedirectUrl + userActivityId + "_" + useremail + "&scope=publish_actions";
+    //alert(FBLink);
+    var ref = window.open(FBLink, "_blank");
+    ref.addEventListener('loadstop', function (event) {
+        if (event.url.match("/Activity/CloseUserActivityFbMobile")) {
+            ref.close();
+            $.mobile.changePage("index.html#container", { transition: "slide" });
+        }
+    });
+
+    return true;
+}
+//NADIR code end
 function fail(error) {
     alert("An error has occurred: Code = " + error.code);
 }

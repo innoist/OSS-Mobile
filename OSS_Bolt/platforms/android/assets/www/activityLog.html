@@ -125,9 +125,9 @@
       </div>
 
       <div id="header">
-        <a href="index.html#container" class="homeButton" data-transition="slide" data-direction="reverse"></a>
+        <a href="index.html#container" data-transition="slide" data-direction="reverse"><img src="img/home/home-icon-a.png" align="left" class="homeIcon"/></a>
         <a href="#" class="menuButton"></a>
-        <h1> Log Activity</h1>
+        <h1 class="titleCenter"> Log Activity</h1>
         <!--<h2> Company Name, Service Sector</h2>-->
         <!--<a href="page1.html" class="nextButton">&raquo;</a>-->
         <!--
@@ -160,9 +160,9 @@
               
             </div>
         </div>
-    <div id="pageActivityLog" style="display: none;" class="bottom">
+    <div id="pageActivityLog" class="bottom">
         
-        <div id="pageServices" class="page">
+        <div id="" class="page">
             <div class="content" >
                 <div id="activitiesTab" class="" >
                     <div class="groupBox activityLogContainer">
@@ -175,7 +175,7 @@
                         <input id="chkbFB" type="checkbox" onclick="IsFBPost(this);"/>
                         <label for="chkbFB"> Is FB Post</label> <br />
                         <div id="panelFBPost" style="display: none">
-                            <label for="comment">Activity Comment: </label>
+                            <label for="">Activity Comment: </label>
                             <textarea id="comment" name="textarea"></textarea>
                             <label>Upload Image: </label>
                             <br/>
@@ -183,7 +183,7 @@
                                 <button data-mini="true" data-inline="true" class="ui-corner-all ui-button" data-theme="b" onclick="capturePhoto();">Capture Photo</button>
                                 <button data-mini="true" data-inline="true" class="ui-corner-all ui-button" data-theme="b" onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Gallery</button>
                             </div>    
-                            <img class="imgActLog" id="largeImage" src="" alt="user"/>
+                            <img class="imgActLog" id="largeImage" src="" style="display: none">
                         </div>
                         <div class="btnLogAct">
                             <button id="save" data-inline="true" class="ui-corner-all ui-button" data-theme="b" onclick="saveActivityLog()">Save</button>
@@ -226,11 +226,11 @@
     <script type="text/javascript" src="js/OSS_Script.js"></script>
     
     <script>
-        document.addEventListener("deviceready", onDeviceReady, false);
+        //document.addEventListener("deviceready", onDeviceReady, false);
         $(document).bind("mobileinit", function(){
       
-            //$.mobile.defaultPageTransition = 'none';
-            $.mobile.defaultPageTransition = 'slide';
+            $.mobile.defaultPageTransition = 'none';
+            //$.mobile.defaultPageTransition = 'slide';
             $.mobile.pushStateEnabled = false;
             //$.mobile.defaultPageTransition = 'fade';
             //$.mobile.defaultPageTransition = 'flow';
@@ -244,8 +244,6 @@
         });
         $(document).ready(function () {
             $("#panelFBPost").hide();
-            //var btnLogoutUser = document.getElementById("linkBlog");
-            //btnLogoutUser.addEventListener("click", logoutUser, false);
             PopulateActivities();
             var btnSaveLog = document.getElementById("save");
             btnSaveLog.addEventListener("click", saveActivityLog, false);
