@@ -5,9 +5,9 @@ var isAuthenticated = false;
 var photoPostURI;
 var mainTransition = "slide";
 
-//var baseURL = "http://192.168.0.110/OSS.web";
+var baseURL = "http://192.168.1.61/OSS.web";
 
-var baseURL = "http://118.139.182.155/OSS";
+//var baseURL = "http://118.139.182.155/OSS";
 
 //var baseURL = "http://localhost:43069";
 
@@ -304,6 +304,22 @@ function IsFBPost() {
         $("#panelFBPost").show();
     } else {
         $("#panelFBPost").hide();
+    }
+}
+
+ // Checks it
+$('#myCheckbox').attr('checked', false);
+
+////Post on Facebook checkbox
+function CheckFb() {
+    if ($("#pageActivityLog option:selected:contains('Fb')").length > 0) {
+        $("input[name=chkbFB]").attr('disabled', false);
+        $('input[name=chkbFB]').attr('checked', true).checkboxradio("refresh");
+        $("#panelFBPost").show();
+    } else {
+        $("#panelFBPost").hide();
+        $('input[name=chkbFB]').attr('checked', false).checkboxradio("refresh");
+        $("input[name=chkbFB]").attr('disabled', true);
     }
 }
 

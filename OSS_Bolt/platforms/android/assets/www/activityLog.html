@@ -169,10 +169,10 @@
                         <label for="date">Date: </label>
                         <input type="date" name="date" id="date">
                         <label for="select-choice-1">Activity: </label>
-                        <select name="select-choice-1" id="select-choice-1">
+                        <select name="select-choice-1" id="select-choice-1" onchange="CheckFb()">
                     
                         </select>
-                        <input id="chkbFB" type="checkbox" onclick="IsFBPost(this);"/>
+                        <input id="chkbFB" name="chkbFB" class="chkbFB" type="checkbox" onclick="IsFBPost(this);"/>
                         <label for="chkbFB"> Is FB Post</label> <br />
                         <div id="panelFBPost" style="display: none">
                             <label for="">Activity Comment: </label>
